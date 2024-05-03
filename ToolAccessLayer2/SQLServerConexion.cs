@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using ToolAccessLayer.Classes;
 using System.Configuration;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using MySql.Data;
+using MySql;
+
 
 namespace ToolAccessLayer
 {
@@ -16,25 +20,25 @@ namespace ToolAccessLayer
         private string stringcnx = "";
         #region Objetos Estáticos
         // Objeto Connection para obter acesso ao SQL Server
-        public static SqlConnection sqlconnection = new SqlConnection();
+        public static MySqlConnection MySqlConnection = new MySqlConnection();
         // Objeto SqlCommand para executar os com
-        public static SqlCommand comando = new SqlCommand();
-        // Objeto SqlParameter para adicionar os parâmetros necessários em nossas consultas
-        public static SqlParameter parametro = new SqlParameter();
+        public static MySqlCommand comando = new MySqlCommand();
+        // Objeto MySqlParameter para adicionar os parâmetros necessários em nossas consultas
+        public static MySqlParameter parametro = new MySqlParameter();
         #endregion
         #region Abre Conexão
         public void Open()
         {
-            if (sqlconnection.State == ConnectionState.Closed)
+            if (MySqlConnection.State == ConnectionState.Closed)
             {
-                sqlconnection.Open();
+                MySqlConnection.Open();
             }
         }
         #endregion
         #region Fecha Conexão
         public void Close()
         {
-            sqlconnection.Close();
+            MySqlConnection.Close();
         }
         #endregion
         public SQLServerConexion(string clave)
@@ -53,18 +57,18 @@ namespace ToolAccessLayer
         {
         }
 
-        public static SqlConnection Connection(string stringcnxs, string clave)
+        public static MySqlConnection Connection(string stringcnxs, string clave)
         {
             try
             {
                 string conString = stringcnxs;
 
-                sqlconnection = new SqlConnection(conString);
-                if (sqlconnection.State == ConnectionState.Closed)
+                MySqlConnection = new MySqlConnection(conString);
+                if (MySqlConnection.State == ConnectionState.Closed)
                 {
-                    sqlconnection.Open();
+                    MySqlConnection.Open();
                 }
-                return sqlconnection;
+                return MySqlConnection;
             }
             catch (Exception ex)
             {
@@ -75,47 +79,47 @@ namespace ToolAccessLayer
         {
             try
             {
-                sqlconnection = new SqlConnection(stringcnx);
-                if (sqlconnection.State == ConnectionState.Closed)
+                MySqlConnection = new MySqlConnection(stringcnx);
+                if (MySqlConnection.State == ConnectionState.Closed)
                 {
-                    sqlconnection.Open();
+                    MySqlConnection.Open();
                 }
-                comando = new SqlCommand();
+                comando = new MySqlCommand();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
-        public static SqlConnection Connection(string clave)
+        public static MySqlConnection Connection(string clave)
         {
             try
             {
                 string conString = AesEncryption.DecryptString(ConfigurationManager.ConnectionStrings["CNXSQL"].ConnectionString, clave);
 
-                sqlconnection = new SqlConnection(conString);
-                if (sqlconnection.State == ConnectionState.Closed)
+                MySqlConnection = new MySqlConnection(conString);
+                if (MySqlConnection.State == ConnectionState.Closed)
                 {
-                    sqlconnection.Open();
+                    MySqlConnection.Open();
                 }
-                return sqlconnection;
+                return MySqlConnection;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
-        public static SqlConnection Connection()
+        public static MySqlConnection Connection()
         {
             try
             {
                 string conString = ConfigurationManager.ConnectionStrings["CNXSQL"].ConnectionString;
-                sqlconnection = new SqlConnection(conString);
-                if (sqlconnection.State == ConnectionState.Closed)
+                MySqlConnection = new MySqlConnection(conString);
+                if (MySqlConnection.State == ConnectionState.Closed)
                 {
-                    sqlconnection.Open();
+                    MySqlConnection.Open();
                 }
-                return sqlconnection;
+                return MySqlConnection;
             }
             catch (Exception ex)
             {
@@ -123,12 +127,12 @@ namespace ToolAccessLayer
             }
         }
         #region Adiciona Parâmetros 
-        public void AdicionarParametro(string nome, SqlDbType tipo, int tamanho, object valor)
+        public void AdicionarParametro(string nome, MySqlDbType tipo, int tamanho, object valor)
         {
 
-            parametro = new SqlParameter();
+            parametro = new MySqlParameter();
             parametro.ParameterName = nome;
-            parametro.SqlDbType = tipo;
+            parametro.MySqlDbType = tipo;
             parametro.Size = tamanho;
             parametro.Value = valor;
             // Adiciona ao comando SQL o parâmetro
@@ -136,13 +140,13 @@ namespace ToolAccessLayer
         }
         #endregion.     
         #region Adiciona Parâmetros
-        public void AdicionarParametro(string nome, SqlDbType tipo, object valor)
+        public void AdicionarParametro(string nome, MySqlDbType tipo, object valor)
         {
             // Cria a instância do Parâmetro e adiciona os valores
-            SqlParameter parametro = new SqlParameter
+            MySqlParameter parametro = new MySqlParameter
             {
                 ParameterName = nome,
-                SqlDbType = tipo,
+                MySqlDbType = tipo,
                 Value = valor
             };
             // Adiciona ao comando SQL o parâmetro
@@ -181,7 +185,7 @@ namespace ToolAccessLayer
 
                 dtresult.Load(dtreader);
                 // Fecha a conexão
-                sqlconnection.Close();
+                MySqlConnection.Close();
                 // Retorna o DataTable com os dados da consulta
                 return dtresult;
 
@@ -212,7 +216,7 @@ namespace ToolAccessLayer
                 comando.CommandText = sql;
                 //Executa a query sql.
                 int result = comando.ExecuteNonQuery();
-                sqlconnection.Close();
+                MySqlConnection.Close();
                 // Retorna a quantidade de linhas afetadas
                 return result;
             }
@@ -237,16 +241,18 @@ namespace ToolAccessLayer
 
                 int index = sql.IndexOf("VALUES");
 
-                string novoComandoSql = sql.Insert(index, " OUTPUT INSERTED.Id ");
+                string novoComandoSql = sql.Insert(index, " RETURNING LAST_INSERT_ID() ");
 
                 comando.CommandText = novoComandoSql;
 
+                comando.ExecuteNonQuery();
+
                 //Executa a query sql.
-                int id = (int)comando.ExecuteScalar();
+                int id = (int)comando.LastInsertedId;
 
                 //int id = (int)comando.GetGeneratedKeys().GetValue(0);
 
-                sqlconnection.Close();
+                MySqlConnection.Close();
                 // Retorna a quantidade de linhas afetadas
                 return id;
 
@@ -273,18 +279,21 @@ namespace ToolAccessLayer
 
                 int index = sql.IndexOf("VALUES");
 
-                string novoComandoSql = sql.Insert(index, " OUTPUT INSERTED." + nombrecolunaid + " ");
+                string novoComandoSql = sql.Insert(index, " RETURNING LAST_INSERT_ID() ");
 
                 comando.CommandText = novoComandoSql;
 
+                comando.ExecuteNonQuery();
+
                 //Executa a query sql.
-                int id = (int)comando.ExecuteScalar();
+                int id = (int)comando.LastInsertedId;
 
                 //int id = (int)comando.GetGeneratedKeys().GetValue(0);
 
-                sqlconnection.Close();
+                MySqlConnection.Close();
                 // Retorna a quantidade de linhas afetadas
                 return id;
+
 
 
             }
@@ -318,7 +327,7 @@ namespace ToolAccessLayer
 
                 dtresult.Load(dtreader);
                 // Fecha a conexão
-                sqlconnection.Close();
+                MySqlConnection.Close();
                 // Retorna o DataTable com os dados da consulta
                 return dtresult;
 
@@ -348,7 +357,7 @@ namespace ToolAccessLayer
                 comando.CommandText = sql;
                 //Executa a query sql.
                 int result = comando.ExecuteNonQuery();
-                sqlconnection.Close();
+                MySqlConnection.Close();
                 // Retorna a quantidade de linhas afetadas
                 return result;
             }
@@ -372,12 +381,10 @@ namespace ToolAccessLayer
                 comando.Connection = Connection(stringcnx, clavecriptografia);
                 comando.CommandText = sql;
                 //Executa a query sql.
-                int result = (int)comando.ExecuteScalar();
-                sqlconnection.Close();
+                int result = (int)comando.ExecuteNonQuery();
+                MySqlConnection.Close();
                 // Retorna a quantidade de linhas afetadas
                 return result;
-
-
 
             }
             catch (Exception)

@@ -135,8 +135,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Admin\CadastroCidade.aspx" />
-    <Content Include="Admin\CadastroTipoMensalidade.aspx" />
-    <Content Include="Admin\CadastroTipoFormacao.aspx" />
     <Content Include="Admin\CadastroSubMenu.aspx" />
     <Content Include="Admin\CadastroMenu.aspx" />
     <Content Include="assets\demo\chart-area-demo.js" />
@@ -260,20 +258,6 @@
     </Compile>
     <Compile Include="Admin\CadastroCidade.aspx.designer.cs">
       <DependentUpon>CadastroCidade.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\CadastroTipoMensalidade.aspx.cs">
-      <DependentUpon>CadastroTipoMensalidade.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\CadastroTipoMensalidade.aspx.designer.cs">
-      <DependentUpon>CadastroTipoMensalidade.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\CadastroTipoFormacao.aspx.cs">
-      <DependentUpon>CadastroTipoFormacao.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\CadastroTipoFormacao.aspx.designer.cs">
-      <DependentUpon>CadastroTipoFormacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\CadastroSubMenu.aspx.cs">
       <DependentUpon>CadastroSubMenu.aspx</DependentUpon>

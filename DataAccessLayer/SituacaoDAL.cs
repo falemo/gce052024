@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using ToolAccessLayer;
+using ToolAccessLayer;using MySql.Data.MySqlClient;
 
 namespace DataAccessLayer
 {
@@ -18,11 +18,11 @@ namespace DataAccessLayer
         public int InserirSituacao(string descricao, bool flBloqueado, bool flNovo, bool flSuspenso, bool flAtivo)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@descricao", SqlDbType.VarChar, descricao);
-            SqlConnection.AdicionarParametro("@flBloqueado", SqlDbType.Bit, flBloqueado);
-            SqlConnection.AdicionarParametro("@flNovo", SqlDbType.Bit, flNovo);
-            SqlConnection.AdicionarParametro("@flSuspenso", SqlDbType.Bit, flSuspenso);
-            SqlConnection.AdicionarParametro("@flAtivo", SqlDbType.Bit, flAtivo);
+            SqlConnection.AdicionarParametro("@descricao", MySqlDbType.VarChar, descricao);
+            SqlConnection.AdicionarParametro("@flBloqueado", MySqlDbType.Bit, flBloqueado);
+            SqlConnection.AdicionarParametro("@flNovo", MySqlDbType.Bit, flNovo);
+            SqlConnection.AdicionarParametro("@flSuspenso", MySqlDbType.Bit, flSuspenso);
+            SqlConnection.AdicionarParametro("@flAtivo", MySqlDbType.Bit, flAtivo);
             return SqlConnection.ExecutaAtualizacaoWithIdentity("INSERT INTO TbSituacao (descricao, flBloqueado, flNovo, flSuspenso, flAtivo) " +
                                                          "VALUES (@descricao, @flBloqueado, @flNovo, @flSuspenso, @flAtivo)");
         }
@@ -30,7 +30,7 @@ namespace DataAccessLayer
         public int ExcluirSituacao(int id)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaAtualizacao("DELETE FROM TbSituacao WHERE Id = @id");
         }
 
@@ -42,7 +42,7 @@ namespace DataAccessLayer
         public DataTable ConsultarSituacoes(int id)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbSituacao WHERE Id = @id");
         }
     }

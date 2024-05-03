@@ -43,34 +43,18 @@
   <ItemGroup>
     <Compile Include="Session.cs" />
     <Compile Include="Sessions.cs" />
-    <Compile Include="TbAluno.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TbAvaliacaoPersonalTrainers.cs" />
+    <Compile Include="TbNrSorteCampanha.cs" />
+    <Compile Include="TbTipoPessoa.cs" />
+    <Compile Include="TbRegistroCampanha.cs" />
     <Compile Include="TbCidade.cs" />
-    <Compile Include="TbEspecialidade.cs" />
-    <Compile Include="TbEspecialidadPersonalTrainers.cs" />
     <Compile Include="TbEstado.cs" />
-    <Compile Include="TbFormacao.cs" />
-    <Compile Include="TbFormacaoPersonalTrainers.cs" />
-    <Compile Include="TbGrupoEspecifico.cs" />
-    <Compile Include="TbGrupoEspecificoAluno.cs" />
-    <Compile Include="TbGrupoEspecificoAlunoHistorico.cs" />
-    <Compile Include="TbHorarioTreino.cs" />
-    <Compile Include="TbMensalidadeAluno.cs" />
+    <Compile Include="TbCampanha.cs" />
     <Compile Include="TbSubMenu.cs" />
     <Compile Include="TbPais.cs" />
-    <Compile Include="TbPersonalTrainers.cs" />
-    <Compile Include="TbPersonalTrainersAluno.cs" />
     <Compile Include="TbMenu.cs" />
     <Compile Include="TbPessoas.cs" />
-    <Compile Include="TbPlanos.cs" />
-    <Compile Include="TbReservas.cs" />
     <Compile Include="TbSituacao.cs" />
-    <Compile Include="TbStatusPagamento.cs" />
-    <Compile Include="TbTipoEspecialidade.cs" />
-    <Compile Include="TbTipoFormacao.cs" />
-    <Compile Include="TbTipoMensalidade.cs" />
-    <Compile Include="TbTipoPlanos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

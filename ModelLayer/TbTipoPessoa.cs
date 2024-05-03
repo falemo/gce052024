@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace ModelLayer
 {
-    public class TbTipoPlanos
+    public class TbTipoPessoa
     {
         public int Id { get; set; }
         public string DsTipo { get; set; }
-        public int NrNivel { get; set; }
-        public int IdPersonal { get; set; }
-
-        public TbPersonalTrainers PersonalTrainers { get; set; }
+        public Boolean Flativo { get; set; }
     }
+
 }

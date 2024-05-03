@@ -23,6 +23,6 @@ namespace ModelLayer
         public TbSituacao Situacao { get; set; }
         public bool FlProfessional { get; set; }
         public bool Fladministrador { get; set; }
-        
+        public TbTipoPessoa Tipopessoa { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using ToolAccessLayer;
+using ToolAccessLayer;using MySql.Data.MySqlClient;
 
 namespace DataAccessLayer
 {
@@ -18,9 +18,9 @@ namespace DataAccessLayer
         public int InserirEstado(string nmEstado, string sigla, int idPais)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@nmEstado", SqlDbType.VarChar, nmEstado);
-            SqlConnection.AdicionarParametro("@sigla", SqlDbType.VarChar, sigla);
-            SqlConnection.AdicionarParametro("@idPais", SqlDbType.Int, idPais);
+            SqlConnection.AdicionarParametro("@nmEstado", MySqlDbType.VarChar, nmEstado);
+            SqlConnection.AdicionarParametro("@sigla", MySqlDbType.VarChar, sigla);
+            SqlConnection.AdicionarParametro("@idPais", MySqlDbType.Int64, idPais);
             return SqlConnection.ExecutaAtualizacaoWithIdentity("INSERT INTO TbEstado (nmEstado, sigla, idPais) " +
                                                          "VALUES (@nmEstado, @sigla, @idPais)");
         }
@@ -28,17 +28,17 @@ namespace DataAccessLayer
         public int AtualizarEstado(int id, string nmEstado, string sigla, int idPais)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@nmEstado", SqlDbType.VarChar, nmEstado);
-            SqlConnection.AdicionarParametro("@sigla", SqlDbType.VarChar, sigla);
-            SqlConnection.AdicionarParametro("@idPais", SqlDbType.Int, idPais);
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@nmEstado", MySqlDbType.VarChar, nmEstado);
+            SqlConnection.AdicionarParametro("@sigla", MySqlDbType.VarChar, sigla);
+            SqlConnection.AdicionarParametro("@idPais", MySqlDbType.Int64, idPais);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaAtualizacao("UPDATE TbEstado SET nmEstado = @nmEstado, sigla = @sigla, idPais = @idPais WHERE Id = @id");
         }
 
         public int ExcluirEstado(int id)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaAtualizacao("DELETE FROM TbEstado WHERE Id = @id");
         }
 
@@ -56,13 +56,13 @@ namespace DataAccessLayer
         {
             SqlConnection.LimparParametros();
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbEstado where id = @id");
         }
         public DataTable ConsultarEstadosPorPais(int idPais)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@idPais", SqlDbType.Int, idPais);
+            SqlConnection.AdicionarParametro("@idPais", MySqlDbType.Int64, idPais);
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbEstado WHERE idPais = @idPais");
         }
     }

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
+using MySql.Data.MySqlClient;
 using ToolAccessLayer;
+
 
 namespace DataAccessLayer
 {
@@ -18,8 +20,8 @@ namespace DataAccessLayer
         public int InserirCidade(string nmCidade, int idEstado)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@nmCidade", SqlDbType.VarChar, nmCidade);
-            SqlConnection.AdicionarParametro("@idEstado", SqlDbType.Int, idEstado);
+            SqlConnection.AdicionarParametro("@nmCidade", MySqlDbType.VarChar, nmCidade);
+            SqlConnection.AdicionarParametro("@idEstado", MySqlDbType.Int64, idEstado);
             return SqlConnection.ExecutaAtualizacaoWithIdentity("INSERT INTO TbCidade (nmCidade, idEstado) " +
                                                          "VALUES (@nmCidade, @idEstado)");
         }
@@ -27,23 +29,23 @@ namespace DataAccessLayer
         public int AtualizarCidade(int id, string nmCidade, int idEstado)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@nmCidade", SqlDbType.VarChar, nmCidade);
-            SqlConnection.AdicionarParametro("@idEstado", SqlDbType.Int, idEstado);
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@nmCidade", MySqlDbType.VarChar, nmCidade);
+            SqlConnection.AdicionarParametro("@idEstado", MySqlDbType.Int64, idEstado);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaAtualizacao("UPDATE TbCidade SET nmCidade = @nmCidade, idEstado = @idEstado WHERE Id = @id");
         }
 
         public int ExcluirCidade(int id)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaAtualizacao("DELETE FROM TbCidade WHERE Id = @id");
         }
 
         public DataTable ConsultarCidades(int id)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbCidade where id = @id");
         }
         public DataTable ConsultarCidades()
@@ -59,7 +61,7 @@ namespace DataAccessLayer
         public DataTable ConsultarCidadesPorEstado(int idEstado)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@idEstado", SqlDbType.Int, idEstado);
+            SqlConnection.AdicionarParametro("@idEstado", MySqlDbType.Int64, idEstado);
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbCidade WHERE idEstado = @idEstado");
         }
     }

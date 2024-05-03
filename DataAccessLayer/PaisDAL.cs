@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using ToolAccessLayer;
+using ToolAccessLayer;using MySql.Data.MySqlClient;
 
 namespace DataAccessLayer
 {
@@ -18,17 +18,17 @@ namespace DataAccessLayer
         public int InserirPais(string nmPais, int codPais)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@nmPais", SqlDbType.VarChar, nmPais);
-            SqlConnection.AdicionarParametro("@codPais", SqlDbType.Int, codPais);
+            SqlConnection.AdicionarParametro("@nmPais", MySqlDbType.VarChar, nmPais);
+            SqlConnection.AdicionarParametro("@codPais", MySqlDbType.Int64, codPais);
             return SqlConnection.ExecutaAtualizacaoWithIdentity("INSERT INTO TbPais (nmPais, codPais) " +
                                                          "VALUES (@nmPais, @codPais)");
         }
         public int AtualizarPais(int id,string nmPais, int codPais)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@nmPais", SqlDbType.VarChar, nmPais);
-            SqlConnection.AdicionarParametro("@codPais", SqlDbType.Int, codPais);
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@nmPais", MySqlDbType.VarChar, nmPais);
+            SqlConnection.AdicionarParametro("@codPais", MySqlDbType.Int64, codPais);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
 
             return SqlConnection.ExecutaAtualizacao("UPDATE TbPais SET nmPais = @nmPais, codPais = @codPais WHERE Id = @id");
          
@@ -36,7 +36,7 @@ namespace DataAccessLayer
         public int ExcluirPais(int id)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaAtualizacao("DELETE FROM TbPais WHERE Id = @id");
         }
 
@@ -48,7 +48,7 @@ namespace DataAccessLayer
         public DataTable ConsultarPaises(int id)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", SqlDbType.Int, id);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbPais WHERE Id = @id");
         }
     }

@@ -41,35 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlunoBL.cs" />
-    <Compile Include="AvaliacaoPersonalTrainersBL.cs" />
     <Compile Include="CidadeBL.cs" />
-    <Compile Include="EspecialidadeBL.cs" />
-    <Compile Include="EspecialidadPersonalTrainersBL.cs" />
     <Compile Include="EstadoBL.cs" />
-    <Compile Include="FormacaoBL.cs" />
-    <Compile Include="FormacaoPersonalTrainersBL.cs" />
-    <Compile Include="GrupoEspecificoAlunoBL.cs" />
-    <Compile Include="GrupoEspecificoAlunoHistoricoBL.cs" />
-    <Compile Include="GrupoEspecificoBL.cs" />
-    <Compile Include="HorarioTreinoBL.cs" />
-    <Compile Include="MensalidadeAlunoBL.cs" />
     <Compile Include="SubMenuBL.cs" />
     <Compile Include="MenuBL.cs" />
     <Compile Include="SessionBL.cs" />
     <Compile Include="PaisBL.cs" />
-    <Compile Include="PersonalTrainersAlunoBL.cs" />
-    <Compile Include="PersonalTrainersBL.cs" />
     <Compile Include="PessoaBL.cs" />
-    <Compile Include="PlanosBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReservasBL.cs" />
     <Compile Include="SituacaoBL.cs" />
-    <Compile Include="StatusPagamentoBL.cs" />
-    <Compile Include="TipoEspecialidadeBL.cs" />
-    <Compile Include="TipoFormacaoBL.cs" />
-    <Compile Include="TipoMensalidadeBL.cs" />
-    <Compile Include="TipoPlanosBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
@@ -84,6 +64,9 @@
       <Project>{92a8e5b6-b160-49d9-b1ad-4d40ba7262a6}</Project>
       <Name>ToolAccessLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
