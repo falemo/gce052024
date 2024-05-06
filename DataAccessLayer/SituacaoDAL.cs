@@ -23,8 +23,27 @@ namespace DataAccessLayer
             SqlConnection.AdicionarParametro("@flNovo", MySqlDbType.Bit, flNovo);
             SqlConnection.AdicionarParametro("@flSuspenso", MySqlDbType.Bit, flSuspenso);
             SqlConnection.AdicionarParametro("@flAtivo", MySqlDbType.Bit, flAtivo);
-            return SqlConnection.ExecutaAtualizacaoWithIdentity("INSERT INTO TbSituacao (descricao, flBloqueado, flNovo, flSuspenso, flAtivo) " +
-                                                         "VALUES (@descricao, @flBloqueado, @flNovo, @flSuspenso, @flAtivo)");
+
+
+            return SqlConnection.ExecutaAtualizacaoWithIdentity("INSERT INTO TbSituacao (descricao, flBloqueado, flNovo, flSuspenso, flAtivo,idGrupo,flEstadoFinal) " +
+                                                         "VALUES (@descricao, @flBloqueado, @flNovo, @flSuspenso, @flAtivo,@idGrupo,@flEstadoFinal)");
+        }
+
+        public int AtualizarSituacao(int id, string descricao, bool flBloqueado, bool flNovo, bool flSuspenso, bool flAtivo, int idGrupo, bool flEstadoFinal)
+        {
+
+            SqlConnection.LimparParametros();
+            SqlConnection.AdicionarParametro("@descricao", MySqlDbType.VarChar, descricao);
+            SqlConnection.AdicionarParametro("@flBloqueado", MySqlDbType.Bit, flBloqueado);
+            SqlConnection.AdicionarParametro("@flNovo", MySqlDbType.Bit, flNovo);
+            SqlConnection.AdicionarParametro("@flSuspenso", MySqlDbType.Bit, flSuspenso);
+            SqlConnection.AdicionarParametro("@flAtivo", MySqlDbType.Bit, flAtivo);
+            SqlConnection.AdicionarParametro("@idGrupo", MySqlDbType.Int64, flAtivo);
+            SqlConnection.AdicionarParametro("@flEstadoFinal", MySqlDbType.Bit, flAtivo);
+            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
+            return SqlConnection.ExecutaAtualizacaoWithIdentity("UPDATE TbSituacao SET descricao = @descricao, flBloqueado = @flBloqueado, flNovo = @flNovo, " +
+                                  "flSuspenso = @flSuspenso, flAtivo = @flAtivo, idGrupo = @idGrupo, flEstadoFinal = @flEstadoFinal " +
+                                  "WHERE Id = @id");
         }
 
         public int ExcluirSituacao(int id)

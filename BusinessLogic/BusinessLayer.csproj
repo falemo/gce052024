@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="CidadeBL.cs" />
     <Compile Include="EstadoBL.cs" />
+    <Compile Include="CampanhaBL.cs" />
+    <Compile Include="TipoPessoalBL.cs" />
     <Compile Include="SubMenuBL.cs" />
     <Compile Include="MenuBL.cs" />
     <Compile Include="SessionBL.cs" />

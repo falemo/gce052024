@@ -93,8 +93,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssociacaoNrSorteCampanhaDAL.cs" />
+    <Compile Include="NrSorteCampanhaDAL.cs" />
+    <Compile Include="TipoPessoaDAL .cs" />
+    <Compile Include="RegistroCampanhaDAL.cs" />
     <Compile Include="CidadeDAL.cs" />
     <Compile Include="EstadoDAL.cs" />
+    <Compile Include="CampanhaDAL.cs" />
     <Compile Include="SubMenuDAL .cs" />
     <Compile Include="PaisDAL.cs" />
     <Compile Include="MenuDAL.cs" />

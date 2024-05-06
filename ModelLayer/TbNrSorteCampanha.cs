@@ -15,7 +15,10 @@ namespace ModelLayer
         public decimal VlrAportado { get; set; }
         public string NmarqComprovante { get; set; }
         public bool FlValidado { get; set; } // Assuming tinyint(1) with values 1 (true) and 0 (false)
-        public TbRegistroCampanha RegistroCampanha { get; set; }
+        public bool FlProcesado { get; set; } // Assuming tinyint(1) with values 1 (true) and 0 (false)
+        public bool FlCupom { get; set; } // Assuming tinyint(1) with values 1 (true) and 0 (false)
+        public TbCampanha Campanha { get; set; }
+
     }
 
 }

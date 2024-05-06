@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using ToolAccessLayer;using MySql.Data.MySqlClient;
+using ToolAccessLayer;
+using MySql.Data.MySqlClient;
 using System.Text;
 
 namespace DataAccessLayer

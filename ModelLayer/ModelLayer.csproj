@@ -44,12 +44,13 @@
     <Compile Include="Session.cs" />
     <Compile Include="Sessions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TbAssociacaoNrSorteCampanha.cs" />
     <Compile Include="TbNrSorteCampanha.cs" />
     <Compile Include="TbTipoPessoa.cs" />
-    <Compile Include="TbRegistroCampanha.cs" />
+    <Compile Include="TbCampanha.cs" />
     <Compile Include="TbCidade.cs" />
     <Compile Include="TbEstado.cs" />
-    <Compile Include="TbCampanha.cs" />
+    <Compile Include="TbRegistroCampanha.cs" />
     <Compile Include="TbSubMenu.cs" />
     <Compile Include="TbPais.cs" />
     <Compile Include="TbMenu.cs" />
