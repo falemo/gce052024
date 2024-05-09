@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Plataforma de serviços que registra a vida das pessoas em termos de atividade física e médica e as conecta com profissionais da saúde e do fitness" />
     <meta name="author" content="Hedin Inovação e Tecnologia" />
-    <title>Login - VidasFit</title>
+    <title>Login - Demolay Sergipe</title>
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <style>
@@ -81,7 +81,7 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Headin Personal 2024</div>
+                        <div class="text-muted">Copyright &copy; Grande Conselho Demolay Sergipe 2024</div>
                         <div>
                             <asp:HyperLink ID="hlPrivacyPolicy" runat="server" NavigateUrl="#">Privacy Policy</asp:HyperLink>
                             &middot;

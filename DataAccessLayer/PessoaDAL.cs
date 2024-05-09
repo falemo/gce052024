@@ -5,6 +5,7 @@ using System.Data;
 using ToolAccessLayer;
 using MySql.Data.MySqlClient;
 using System.Text;
+using System.Security.Cryptography;
 
 namespace DataAccessLayer
 {
@@ -17,7 +18,7 @@ namespace DataAccessLayer
             SqlConnection.Open();
         }
 
-        public int InserirPessoa(string nome, DateTime dtNascimento, string genero, string endereco, string email, string telefone, int? idCidade, int? idSituacao, string pwdUsuario, DateTime dtCadastro, bool flProfessional, bool fladministrador)
+        public int InserirPessoa(string nome, DateTime dtNascimento, string genero, string endereco, string email, string telefone, int? idCidade, int? idSituacao, string pwdUsuario, DateTime dtCadastro, bool flProfessional, bool fladministrador, int idTipoPessoa)
         {
             SqlConnection.LimparParametros();
             SqlConnection.AdicionarParametro("@nome", MySqlDbType.VarChar, nome);
@@ -32,11 +33,13 @@ namespace DataAccessLayer
             SqlConnection.AdicionarParametro("@dtCadastro", MySqlDbType.DateTime, dtCadastro);
             SqlConnection.AdicionarParametro("@flProfessional", MySqlDbType.Bit, flProfessional);
             SqlConnection.AdicionarParametro("@fladministrador", MySqlDbType.Bit, fladministrador);
-            return SqlConnection.ExecutaAtualizacaoWithIdentity("INSERT INTO TbPessoas (nome, DtNascimento, genero, endereco, email, Telefone, idCidade, idSituacao, pwdUsuario, dtCadastro,flProfessional,fladministrador) " +
-                                              "VALUES (@nome, @dtNascimento, @genero, @endereco, @email, @telefone, @idCidade, @idSituacao, PWDENCRYPT(@pwdUsuario), @dtCadastro,@flProfessional,@fladministrador)");
+            SqlConnection.AdicionarParametro("@idTipoPessoa", MySqlDbType.Int64, idTipoPessoa);
+
+            return SqlConnection.ExecutaAtualizacaoWithIdentity("INSERT INTO TbPessoas (nome, DtNascimento, genero, endereco, email, Telefone, idCidade, idSituacao, pwdUsuario, dtCadastro,flProfessional,fladministrador,idTipoPessoa) " +
+                                              "VALUES (@nome, @dtNascimento, @genero, @endereco, @email, @telefone, @idCidade, @idSituacao, UNHEX(SHA2(@pwdUsuario, 256)), @dtCadastro,@flProfessional,@fladministrador,@idTipoPessoa)");
         }
 
-        public int AtualizarPessoa(int id, string nome, DateTime dtNascimento, string genero, string endereco, string telefone, int? idCidade, int? idSituacao, DateTime dtCadastro, bool flProfessional, bool fladministrador)
+        public int AtualizarPessoa(int id, string nome, DateTime dtNascimento, string genero, string endereco, string telefone, int? idCidade, int? idSituacao, DateTime dtCadastro, bool flProfessional, bool fladministrador, int idTipoPessoa)
         {
             SqlConnection.LimparParametros();
             SqlConnection.AdicionarParametro("@nome", MySqlDbType.VarChar, nome);
@@ -51,10 +54,12 @@ namespace DataAccessLayer
             SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             SqlConnection.AdicionarParametro("@flProfessional", MySqlDbType.Bit, flProfessional);
             SqlConnection.AdicionarParametro("@fladministrador", MySqlDbType.Bit, fladministrador);
+            SqlConnection.AdicionarParametro("@idTipoPessoa", MySqlDbType.Int64, idTipoPessoa);
+            
             return SqlConnection.ExecutaAtualizacao("UPDATE TbPessoas SET nome = @nome, DtNascimento = @dtNascimento, genero = @genero, " +
                                                      "endereco = @endereco, Telefone = @telefone, " +
                                                      "idCidade = @idCidade, idSituacao = @idSituacao,  " +
-                                                     "dtCadastro = @dtCadastro, flProfessional = @flProfessional, fladministrador = @fladministrador WHERE Id = @id");
+                                                     "dtCadastro = @dtCadastro, flProfessional = @flProfessional, fladministrador = @fladministrador, idTipoPessoa=@idTipoPessoa WHERE Id = @id");
         }
         public int AtualizarSenha(int id, string email, string pwdUsuario)
         {
@@ -62,18 +67,34 @@ namespace DataAccessLayer
             SqlConnection.AdicionarParametro("@pwdUsuario", MySqlDbType.VarChar, pwdUsuario);
             SqlConnection.AdicionarParametro("@email", MySqlDbType.VarChar, email);
             SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
-            return SqlConnection.ExecutaAtualizacao("UPDATE TbPessoas SET pwdUsuario = PWDENCRYPT(@pwdUsuario) " +
+            return SqlConnection.ExecutaAtualizacao("UPDATE TbPessoas SET pwdUsuario = UNHEX(SHA2(@pwdUsuario, 256)) " +
                                                      "WHERE Id = @id or email = @email");
         }
         public DataTable GetPessoaPWD(int id, string email, string pwdUsuario)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@pwdUsuario", MySqlDbType.VarChar, pwdUsuario);
             SqlConnection.AdicionarParametro("@email", MySqlDbType.VarChar, email);
             SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
-            return SqlConnection.ExecutaConsulta("SELECT * FROM TbPessoas WHERE (email = @email OR id = @id) And PWDCOMPARE(@pwdUsuario,pwdUsuario) = 1");
-        }
 
+            // Criptografar a senha fornecida com SHA-256
+            byte[] senhaCriptografada = GerarHashSHA256(pwdUsuario);
+
+            // Converter o hash criptografado em uma string hexadecimal
+            string senhaHexadecimal = BitConverter.ToString(senhaCriptografada).Replace("-", "");
+
+            SqlConnection.AdicionarParametro("@pwdUsuario", MySqlDbType.VarBinary, senhaCriptografada);
+
+            return SqlConnection.ExecutaConsulta("SELECT * FROM TbPessoas WHERE (email = @email OR id = @id) And (@pwdUsuario =  pwdUsuario)");
+        }
+       
+        private byte[] GerarHashSHA256(string input)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+                return bytes;
+            }
+        }
 
         public int AtualizarSituacao(int id, int idSituacao)
         {

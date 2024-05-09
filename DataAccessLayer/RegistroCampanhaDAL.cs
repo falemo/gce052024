@@ -63,5 +63,12 @@ namespace DataAccessLayer
             SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbRegistroCampanha WHERE id = @id");
         }
+
+        public DataTable ConsultarRegistroPorCampanha(int idCampanha)
+        {
+            SqlConnection.LimparParametros();
+            SqlConnection.AdicionarParametro("@idCampanha", MySqlDbType.Int64, idCampanha);
+            return SqlConnection.ExecutaConsulta("SELECT * FROM TbRegistroCampanha WHERE idCampanha = @idCampanha");
+        }
     }
 }

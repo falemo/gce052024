@@ -15,7 +15,7 @@ namespace DataAccessLayer
             SqlConnection.Open();
         }
 
-        public int InserirSituacao(string descricao, bool flBloqueado, bool flNovo, bool flSuspenso, bool flAtivo)
+        public int InserirSituacao(string descricao, bool flBloqueado, bool flNovo, bool flSuspenso, bool flAtivo, int idGrupo, bool flEstadoFinal)
         {
             SqlConnection.LimparParametros();
             SqlConnection.AdicionarParametro("@descricao", MySqlDbType.VarChar, descricao);
@@ -23,7 +23,8 @@ namespace DataAccessLayer
             SqlConnection.AdicionarParametro("@flNovo", MySqlDbType.Bit, flNovo);
             SqlConnection.AdicionarParametro("@flSuspenso", MySqlDbType.Bit, flSuspenso);
             SqlConnection.AdicionarParametro("@flAtivo", MySqlDbType.Bit, flAtivo);
-
+            SqlConnection.AdicionarParametro("@idGrupo", MySqlDbType.Int64, idGrupo);
+            SqlConnection.AdicionarParametro("@flEstadoFinal", MySqlDbType.Bit, flEstadoFinal);
 
             return SqlConnection.ExecutaAtualizacaoWithIdentity("INSERT INTO TbSituacao (descricao, flBloqueado, flNovo, flSuspenso, flAtivo,idGrupo,flEstadoFinal) " +
                                                          "VALUES (@descricao, @flBloqueado, @flNovo, @flSuspenso, @flAtivo,@idGrupo,@flEstadoFinal)");

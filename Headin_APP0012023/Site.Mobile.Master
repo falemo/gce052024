@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta name="viewport" content="width=device-width" />
-    <title><%: Page.Title %> - Headin - Inovação e Tecnologia</title>
+    <title><%: Page.Title %> - Demolay Sergipe</title>
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
 <body  class="sb-nav-fixed">

@@ -14,5 +14,10 @@ namespace ModelLayer
         public bool FlNovo { get; set; }
         public bool FlSuspenso { get; set; }
         public bool FlAtivo { get; set; }
+        public int IdGrupo { get; set; }
+        public bool FlEstadoFinal { get; set; }
+
+
+
     }
 }

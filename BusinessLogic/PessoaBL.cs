@@ -16,14 +16,14 @@ namespace BusinessLogic
         public PessoaBL()
         {
         }
-        public int InserirPessoa(string nome, DateTime dtNascimento, string genero, string endereco, string email, string telefone, int? idCidade, int? idSituacao, string pwdUsuario, DateTime dtCadastro, bool flProfessional, bool fladministrador)
+        public int InserirPessoa(string nome, DateTime dtNascimento, string genero, string endereco, string email, string telefone, int? idCidade, int? idSituacao, string pwdUsuario, DateTime dtCadastro, bool flProfessional, bool fladministrador, int idTipoPessoa)
         {
-            return _pessoaDAL.InserirPessoa(nome, dtNascimento, genero, endereco, email, telefone, idCidade, idSituacao, pwdUsuario, dtCadastro, flProfessional,fladministrador);
+            return _pessoaDAL.InserirPessoa(nome, dtNascimento, genero, endereco, email, telefone, idCidade, idSituacao, pwdUsuario, dtCadastro, flProfessional,fladministrador, idTipoPessoa);
         }
 
-        public int AtualizarPessoa(int id, string nome, DateTime dtNascimento, string genero, string endereco, string telefone, int? idCidade, int? idSituacao, DateTime dtCadastro, bool flProfessional, bool fladministrador)
+        public int AtualizarPessoa(int id, string nome, DateTime dtNascimento, string genero, string endereco, string telefone, int? idCidade, int? idSituacao, DateTime dtCadastro, bool flProfessional, bool fladministrador, int idTipoPessoa)
         {
-            return _pessoaDAL.AtualizarPessoa(id, nome, dtNascimento, genero, endereco, telefone, idCidade, idSituacao, dtCadastro, flProfessional, fladministrador);
+            return _pessoaDAL.AtualizarPessoa(id, nome, dtNascimento, genero, endereco, telefone, idCidade, idSituacao, dtCadastro, flProfessional, fladministrador,idTipoPessoa);
         }
 
         public int AtualizarSenha(int id, string email, string pwdUsuario)
@@ -64,15 +64,19 @@ namespace BusinessLogic
                 pessoa.Endereco = (string)row["Endereco"];
                 pessoa.Email = (string)row["Email"];
                 pessoa.Telefone = (string)row["Telefone"];
-                pessoa.IdCidade = (int)row["IdCidade"];
+
                 CidadeBL cidade = new CidadeBL();
-                pessoa.Cidade = cidade.ObterCidadePorId(pessoa.IdCidade);    
-                pessoa.IdSituacao = (int)row["IdSituacao"];
+                pessoa.Cidade = cidade.ObterCidadePorId((int)row["idCidade"]);    
+
                 SituacaoBL situacao = new SituacaoBL();
-                pessoa.Situacao = situacao.ConsultarSituacaoPorId(pessoa.IdSituacao);
+                pessoa.Situacao = situacao.ObterSituacao((int)row["idSituacao"]);
+
                 pessoa.PwdUsuario = ""; // (string)row["PwdUsuario"];
                 pessoa.FlProfessional = (bool)row["FlProfessional"];
                 pessoa.Fladministrador = (bool)row["fladministrador"];
+
+                TipoPessoalBL tipoPessoa = new TipoPessoalBL();
+                pessoa.Tipopessoa = tipoPessoa.ObterTipoPessoa((int)row["idTipoPessoa"]);
             }
             return pessoa;
         }

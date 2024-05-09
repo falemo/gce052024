@@ -37,6 +37,11 @@ namespace BusinessLayer
             return _tipoPessoalBL.ConsultarTiposPessoa();
         }
 
+        public DataTable ConsultarTipoPessoa(bool flativo)
+        {
+            return _tipoPessoalBL.ConsultarTiposPessoa(flativo);
+        }
+
         public TbTipoPessoa ObterTipoPessoa(int id)
         {
             DataTable dataTable = _tipoPessoalBL.ConsultarTipoPessoa(id);

@@ -12,7 +12,7 @@ namespace BusinessLayer
 {
     public class CampanhaBL
     {
-        private readonly TbCampanhaDAL _campanhaDAL = new TbCampanhaDAL();
+        private readonly CampanhaDAL _campanhaDAL = new CampanhaDAL();
 
         public CampanhaBL()
         {

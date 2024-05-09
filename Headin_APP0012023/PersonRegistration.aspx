@@ -63,7 +63,7 @@
                                 <label for="txtEmail">Email</label>
                             </div>
                             <div class="mt-2">
-                                    <p class="mt-2 text-blue font-weight-bold">Atenção: Este e-mail será a associação (Chave) entre você e os serviços profissionais registrados.</p>
+                                    <p class="mt-2 text-blue font-weight-bold">Atenção: Este e-mail será a associação (Chave) entre você e os modulos do Sistemas.</p>
                             </div>
                             <div class="form-floating mb-3">
                                 <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" Text="" placeholder="Telefone" />
@@ -87,14 +87,34 @@
                                 <label for="ddlCidade">Cidade</label>
                             </div>
                             <div class="form-floating mb-3">
+                                <asp:DropDownList ID="ddlTipoPessoa" runat="server" CssClass="form-select">
+                                </asp:DropDownList>
+                                <label for="ddlTipoPessoa">Tipo de Pessoa</label>
+                            </div>
+                            <div class="form-floating mb-3">
                                 <asp:TextBox ID="txtpwd" runat="server" CssClass="form-control" TextMode="Password" placeholder="Senha" />
                                 <label for="txtpwd">Senha</label>
                             </div>
                             <div class="mt-2">
-                                    <p class="mt-2 text-blue font-weight-bold">Marcar a opção "Professional" habilita o seu perfil para vender serviços profissionais na plataforma.</p>
+                                    <p class="mt-2 text-blue font-weight-bold">Marcar a opção "Demolay\Maçom" habilita o seu perfil para ter acesso a opções associado aos trabalhos da Ordem na plataforma.</p>
                             </div>
+
                             <div class="form-check mb-3">
-                                <asp:CheckBox ID="chkProfessional" runat="server" CssClass="form-check-input" Text="Professional" />
+                                <asp:CheckBox ID="chkProfessional" runat="server" CssClass="form-check-input" />
+                                <label class="form-check-label" for="chkProfessional">Demolay\Maçom</label>
+                            </div>
+                            <div class="separador"></div>
+
+                            <div class="politica-privacidade">
+                                <h3>Política de Privacidade</h3>
+                                <p>Ao se cadastrar em nosso site e fornecer seus dados pessoais, você concorda com o uso desses dados pelo nosso sistema para os fins específicos descritos em nossa política de privacidade. Esses fins incluem, mas não estão limitados a:</p>
+                                <ul>
+                                    <li>Processar seu cadastro e fornecer acesso aos recursos e serviços do site.</li>
+                                    <li>Comunicar-se com você sobre sua conta, atualizações de serviços e informações relevantes.</li>
+                                    <li>Personalizar sua experiência no site e fornecer conteúdo e recursos relevantes.</li>
+                                    <li>Cumprir com obrigações legais e regulamentações aplicáveis.</li>
+                                </ul>
+                                <p>Ao concordar com esta declaração, você reconhece que leu e compreendeu nossa política de privacidade e concorda com as práticas de coleta, armazenamento e uso de dados descritas nesse documento.</p>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <asp:Button ID="btnRegister" runat="server" CssClass="btn btn-primary" Text="Registrar" OnClick="btnRegister_Click" />

@@ -46,7 +46,12 @@ namespace DataAccessLayer
             SqlConnection.LimparParametros();
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbTipoPessoa");
         }
-
+        public DataTable ConsultarTiposPessoa(bool flAtivo)
+        {
+            SqlConnection.LimparParametros();
+            SqlConnection.AdicionarParametro("@flAtivo", MySqlDbType.Bit, flAtivo);
+            return SqlConnection.ExecutaConsulta("SELECT * FROM TbTipoPessoa Where flAtivo = @flAtivo");
+        }
         public DataTable ConsultarTipoPessoa(int id)
         {
             SqlConnection.LimparParametros();

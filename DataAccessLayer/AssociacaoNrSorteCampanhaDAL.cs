@@ -5,69 +5,70 @@ using ToolAccessLayer;
 
 namespace DataAccessLayer
 {
-    public class TbCampanhaDAL
+    public class AssociacaoNrSorteCampanhaDAL
     {
         private SQLServerConexion SqlConnection = new SQLServerConexion("headin2023fabrinioandessantanalemos");
 
-        public TbCampanhaDAL()
+        public AssociacaoNrSorteCampanhaDAL()
         {
             SqlConnection.Open();
         }
 
-        public int InserirCampanha(decimal vlrCampanha, DateTime dtInicio, DateTime dtFim, bool flAtiva, string dsPix, string dsPixInfo, int idPessoa, string filePath, decimal vlrMinimoSorte)
+        public int InserirAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai, DateTime dtCadastro, decimal vlrConvervacao, decimal vlrSaldo )
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@vlrCampanha", MySqlDbType.Decimal, vlrCampanha);
-            SqlConnection.AdicionarParametro("@dtInicio", MySqlDbType.DateTime, dtInicio);
-            SqlConnection.AdicionarParametro("@dtFim", MySqlDbType.DateTime, dtFim);
-            SqlConnection.AdicionarParametro("@flAtiva", MySqlDbType.Bit, flAtiva);
-            SqlConnection.AdicionarParametro("@dsPix", MySqlDbType.VarChar, dsPix);
-            SqlConnection.AdicionarParametro("@dsPixInfo", MySqlDbType.VarChar, dsPixInfo);
-            SqlConnection.AdicionarParametro("@idPessoa", MySqlDbType.Int64, idPessoa);
-            SqlConnection.AdicionarParametro("@filePath", MySqlDbType.Text, filePath);
-            SqlConnection.AdicionarParametro("@vlrMinimoSorte", MySqlDbType.Decimal, vlrMinimoSorte);
+            SqlConnection.AdicionarParametro("@idNrSorte", MySqlDbType.Int64, idNrSorte);
+            SqlConnection.AdicionarParametro("@idSortePai", MySqlDbType.Int64, idSortePai);
+            SqlConnection.AdicionarParametro("@dtCadastro", MySqlDbType.DateTime, dtCadastro);
+            SqlConnection.AdicionarParametro("@vlrConvervacao", MySqlDbType.Decimal, vlrConvervacao);
+            SqlConnection.AdicionarParametro("@vlrSaldo", MySqlDbType.Decimal, vlrSaldo);
 
-            return SqlConnection.ExecutaAtualizacaoWithIdentity("INSERT INTO TbCampanha (vlrCampanha, dtInicio, dtFim, flAtiva, dsPix, dsPixInfo, idPessoa, file_path, vlrMinimoSorte) " +
-                                                     "VALUES (@vlrCampanha, @dtInicio, @dtFim, @flAtiva, @dsPix, @dsPixInfo, @idPessoa, @filePath, @vlrMinimoSorte)");
+            return SqlConnection.ExecutaAtualizacao("INSERT INTO TbAssociacaoNrSorteCampanha (idNrSorte ,idSortePai ,dtCadastro  ,vlrConvervacao ,vlrSaldo ) " +
+                                                     "VALUES (@idNrSorte ,@idSortePai ,@dtCadastro,@vlrConvervacao ,@vlrSaldo )");
         }
 
-        public int AtualizarCampanha(int id, decimal vlrCampanha, DateTime dtInicio, DateTime dtFim, bool flAtiva, string dsPix, string dsPixInfo, int idPessoa, string filePath, decimal vlrMinimoSorte)
+        public int AtualizarAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai, DateTime dtCadastro, decimal vlrConvervacao, decimal vlrSaldo)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
-            SqlConnection.AdicionarParametro("@vlrCampanha", MySqlDbType.Decimal, vlrCampanha);
-            SqlConnection.AdicionarParametro("@dtInicio", MySqlDbType.DateTime, dtInicio);
-            SqlConnection.AdicionarParametro("@dtFim", MySqlDbType.DateTime, dtFim);
-            SqlConnection.AdicionarParametro("@flAtiva", MySqlDbType.Bit, flAtiva);
-            SqlConnection.AdicionarParametro("@dsPix", MySqlDbType.VarChar, dsPix);
-            SqlConnection.AdicionarParametro("@dsPixInfo", MySqlDbType.VarChar, dsPixInfo);
-            SqlConnection.AdicionarParametro("@idPessoa", MySqlDbType.Int64, idPessoa);
-            SqlConnection.AdicionarParametro("@filePath", MySqlDbType.Text, filePath);
-            SqlConnection.AdicionarParametro("@vlrMinimoSorte", MySqlDbType.Decimal, vlrMinimoSorte);
+            SqlConnection.AdicionarParametro("@idNrSorte", MySqlDbType.Int64, idNrSorte);
+            SqlConnection.AdicionarParametro("@idSortePai", MySqlDbType.Int64, idSortePai);
+            SqlConnection.AdicionarParametro("@dtCadastro", MySqlDbType.DateTime, dtCadastro);
+            SqlConnection.AdicionarParametro("@vlrConvervacao", MySqlDbType.Decimal, vlrConvervacao);
+            SqlConnection.AdicionarParametro("@vlrSaldo", MySqlDbType.Decimal, vlrSaldo);
 
-            return SqlConnection.ExecutaAtualizacao("UPDATE TbCampanha SET vlrCampanha = @vlrCampanha, dtInicio = @dtInicio, dtFim = @dtFim, flAtiva = @flAtiva, " +
-                                                     "dsPix = @dsPix, dsPixInfo = @dsPixInfo, idPessoa = @idPessoa, file_path = @filePath, vlrMinimoSorte = @vlrMinimoSorte WHERE id = @id");
-        }
+            return SqlConnection.ExecutaAtualizacao("UPDATE TbAssociacaoNrSorteCampanha SET dtCadastro = @dtCadastro, vlrConvervacao = @vlrConvervacao, vlrSaldo = @vlrSaldo " +
+                                                     " WHERE idNrSorte = @idNrSorte And idSortePai= @idSortePai");
+        } 
 
-        public int ExcluirCampanha(int id)
+        public int ExcluirAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
+            SqlConnection.AdicionarParametro("@idNrSorte", MySqlDbType.Int64, idNrSorte);
+            SqlConnection.AdicionarParametro("@idSortePai", MySqlDbType.Int64, idSortePai);
 
-            return SqlConnection.ExecutaAtualizacao("DELETE FROM TbCampanha WHERE id = @id");
+            return SqlConnection.ExecutaAtualizacao("DELETE FROM TbAssociacaoNrSorteCampanha WHERE idNrSorte = @idNrSorte And idSortePai= @idSortePai");
         }
 
-        public DataTable ConsultarCampanhas()
+        public DataTable ConsultarAssociacaoNrSorteCampanha()
         {
             SqlConnection.LimparParametros();
-            return SqlConnection.ExecutaConsulta("SELECT * FROM TbCampanha");
+            return SqlConnection.ExecutaConsulta("SELECT * FROM TbAssociacaoNrSorteCampanha");
         }
 
-        public DataTable ConsultarCampanha(int id)
+        public DataTable ConsultarAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai)
         {
             SqlConnection.LimparParametros();
-            SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
-            return SqlConnection.ExecutaConsulta("SELECT * FROM TbCampanha WHERE id = @id");
+            SqlConnection.AdicionarParametro("@idNrSorte", MySqlDbType.Int64, idNrSorte);
+            SqlConnection.AdicionarParametro("@idSortePai", MySqlDbType.Int64, idSortePai);
+            return SqlConnection.ExecutaConsulta("SELECT * FROM TbAssociacaoNrSorteCampanha WHERE idNrSorte = @idNrSorte And idSortePai= @idSortePai");
         }
+
+        public DataTable ConsultarAssociacaoNrSorteCampanha(int idSortePai)
+        {
+            SqlConnection.LimparParametros();
+            SqlConnection.AdicionarParametro("@idSortePai", MySqlDbType.Int64, idSortePai);
+            return SqlConnection.ExecutaConsulta("SELECT * FROM TbAssociacaoNrSorteCampanha WHERE idSortePai= @idSortePai");
+        }
+
     }
 }

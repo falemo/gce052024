@@ -11281,3 +11281,28 @@ body {
         background-color: #f2f2f2;
         font-weight: bold;
     }
+
+    .politica-privacidade {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    }
+
+    .politica-privacidade h3 {
+    margin-top: 0;
+    }
+
+    .politica-privacidade ul {
+    margin-bottom: 10px;
+    }
+
+    .politica-privacidade ul li {
+        list-style-type: circle;
+        margin-left: 20px;
+    }
+.separador {
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

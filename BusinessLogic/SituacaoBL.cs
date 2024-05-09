@@ -17,9 +17,9 @@ namespace BusinessLayer
         {
         }
 
-        public int InserirSituacao(string descricao, bool flBloqueado, bool flNovo, bool flSuspenso, bool flAtivo)
+        public int InserirSituacao(string descricao, bool flBloqueado, bool flNovo, bool flSuspenso, bool flAtivo, int idGrupo, bool flEstadoFinal)
         {
-            return _situacaoDAL.InserirSituacao(descricao, flBloqueado, flNovo, flSuspenso, flAtivo);
+            return _situacaoDAL.InserirSituacao(descricao, flBloqueado, flNovo, flSuspenso, flAtivo, idGrupo, flEstadoFinal);
         }
 
         public int ExcluirSituacao(int id)
@@ -30,6 +30,24 @@ namespace BusinessLayer
         public DataTable ConsultarSituacoes()
         {
             return _situacaoDAL.ConsultarSituacoes();
+        }
+
+        public TbSituacao ObterSituacao(int id)
+        {
+            DataTable dataTable = _situacaoDAL.ConsultarSituacoes(id);
+            TbSituacao situacao = new TbSituacao();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                situacao.Id = (int)row["Id"];
+                situacao.Descricao = (string)row["Descricao"];
+                situacao.FlBloqueado = (bool)row["FlBloqueado"];
+                situacao.FlNovo = (bool)row["FlNovo"];
+                situacao.FlSuspenso = (bool)row["FlSuspenso"];
+                situacao.FlAtivo = (bool)row["FlAtivo"];
+                situacao.IdGrupo = (int)row["IdGrupo"];
+                situacao.FlEstadoFinal = (bool)row["FlEstadoFinal"];
+            }
+            return situacao;
         }
 
         public TbSituacao ConsultarSituacaoPorId(int id)
@@ -46,7 +64,10 @@ namespace BusinessLayer
                         FlBloqueado = Convert.ToBoolean(dataRow["flBloqueado"]),
                         FlNovo = Convert.ToBoolean(dataRow["flNovo"]),
                         FlSuspenso = Convert.ToBoolean(dataRow["flSuspenso"]),
-                        FlAtivo = Convert.ToBoolean(dataRow["flAtivo"])
+                        FlAtivo = Convert.ToBoolean(dataRow["flAtivo"]),
+                        IdGrupo = (int)dataRow["IdGrupo"],
+                        FlEstadoFinal = Convert.ToBoolean(dataRow["FlEstadoFinal"])
+
                     };
                 }
             }

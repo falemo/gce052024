@@ -237,7 +237,7 @@ namespace ToolAccessLayer
             {
                 //Instância o sqlcommand com a query sql que será executada e a conexão.
                 //comando = new SqlCommand(sql, Connection(stringcnx, clavecriptografia));
-                comando.Connection = Connection(stringcnx, clavecriptografia);
+               /* comando.Connection = Connection(stringcnx, clavecriptografia);
 
                 int index = sql.IndexOf("VALUES");
 
@@ -254,8 +254,22 @@ namespace ToolAccessLayer
 
                 MySqlConnection.Close();
                 // Retorna a quantidade de linhas afetadas
-                return id;
+                return id;*/
 
+                comando.Connection = Connection(stringcnx, clavecriptografia);
+                comando.CommandText = sql;
+
+                // Executar a inserção
+                comando.ExecuteNonQuery();
+
+                // Obter o último ID inserido usando LAST_INSERT_ID()
+                comando.CommandText = "SELECT LAST_INSERT_ID()";
+                int id = Convert.ToInt32(comando.ExecuteScalar());
+
+                MySqlConnection.Close();
+
+                // Retorna o último ID inserido
+                return id;
 
             }
             catch (Exception)
@@ -275,7 +289,7 @@ namespace ToolAccessLayer
             {
                 //Instância o sqlcommand com a query sql que será executada e a conexão.
                 //comando = new SqlCommand(sql, Connection(stringcnx, clavecriptografia));
-                comando.Connection = Connection(stringcnx, clavecriptografia);
+                /*comando.Connection = Connection(stringcnx, clavecriptografia);
 
                 int index = sql.IndexOf("VALUES");
 
@@ -292,8 +306,22 @@ namespace ToolAccessLayer
 
                 MySqlConnection.Close();
                 // Retorna a quantidade de linhas afetadas
-                return id;
+                return id;*/
+                
+                comando.Connection = Connection(stringcnx, clavecriptografia);
+                comando.CommandText = sql;
 
+                // Executar a inserção
+                comando.ExecuteNonQuery();
+
+                // Obter o último ID inserido usando LAST_INSERT_ID()
+                comando.CommandText = "SELECT LAST_INSERT_ID()";
+                int id = Convert.ToInt32(comando.ExecuteScalar());
+
+                MySqlConnection.Close();
+
+                // Retorna o último ID inserido
+                return id;
 
 
             }

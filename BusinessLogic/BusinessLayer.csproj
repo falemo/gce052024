@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NrSorteCampanhaBL.cs" />
+    <Compile Include="RegistroCampanhaBL.cs" />
+    <Compile Include="AssociacaoNrSorteCampanhaBL.cs" />
     <Compile Include="CidadeBL.cs" />
     <Compile Include="EstadoBL.cs" />
     <Compile Include="CampanhaBL.cs" />

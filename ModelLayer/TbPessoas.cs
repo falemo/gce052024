@@ -15,8 +15,6 @@ namespace ModelLayer
         public string Endereco { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
-        public int IdCidade { get; set; }
-        public int IdSituacao { get; set; }
         public string PwdUsuario { get; set; }
         public DateTime DtCadastro { get; set; }
         public TbCidade Cidade { get; set; }

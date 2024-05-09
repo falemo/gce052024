@@ -9,7 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Headin_APP0012023
-{
+{ 
     public partial class PersonRegistration : Page
     {
         protected void GerarComboPais()
@@ -25,10 +25,25 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblMessage.Text = ex.Message;
             }
         }
-
+        protected void GerarComboTipoPessoa()
+        {
+            try
+            {
+                ddlTipoPessoa.Items.Clear();
+                ddlTipoPessoa.DataSource = new TipoPessoalBL().ConsultarTipoPessoa(true);
+                ddlTipoPessoa.DataTextField = "dsTipo";
+                ddlTipoPessoa.DataValueField = "Id";
+                ddlTipoPessoa.DataBind();
+                ddlTipoPessoa.Items.Insert(0, new ListItem("-- Selecione --", ""));
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = ex.Message;
+            }
+        }
         protected void GerarComboEstado(int idPais)
         {
             try {
@@ -42,7 +57,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblMessage.Text = ex.Message;
             }
 
         }
@@ -60,7 +75,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblMessage.Text = ex.Message;
             }
 
         }
@@ -80,15 +95,16 @@ namespace Headin_APP0012023
 
                 GerarComboPais();
                 ddlPais_SelectedIndexChanged(null, null);
+                GerarComboTipoPessoa();
 
                 ddlEstado.SelectedIndex = 0;
                 ddlCidade.SelectedIndex = 0;
                 ddlGender.SelectedIndex = 0;
-
+                ddlTipoPessoa.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblMessage.Text = ex.Message;
             }
         }
 
@@ -113,7 +129,7 @@ namespace Headin_APP0012023
                 else
                 {
                     PessoaBL pessoaBL = new PessoaBL();
-                    pessoaBL.InserirPessoa(txtName.Text, DateTime.Parse(txtBirthDate.Text), ddlGender.SelectedValue, txtAddress.Text, txtEmail.Text, txtPhone.Text, int.Parse(ddlCidade.SelectedValue), 1, txtpwd.Text, DateTime.Now, chkProfessional.Checked, false);
+                    pessoaBL.InserirPessoa(txtName.Text, DateTime.Parse(txtBirthDate.Text), ddlGender.SelectedValue, txtAddress.Text, txtEmail.Text, txtPhone.Text, int.Parse(ddlCidade.SelectedValue), 1, txtpwd.Text, DateTime.Now, chkProfessional.Checked, false, int.Parse(ddlTipoPessoa.SelectedValue));
                     lblMessage.Text = "Cadastrado realizado com sucesso! retorne e faça seu Login";
                     LimparFormulario();
                     btnBackToLogin.Focus();
@@ -134,8 +150,16 @@ namespace Headin_APP0012023
         {
             try
             {
-                GerarComboCidade(int.Parse(ddlEstado.SelectedValue));
-                ddlCidade_SelectedIndexChanged(e, e);
+                if (ddlEstado.SelectedIndex > 0)
+                {
+                    GerarComboCidade(int.Parse(ddlEstado.SelectedValue));
+                    ddlCidade_SelectedIndexChanged(e, e);
+                }
+                else
+                {
+                    ddlCidade.Items.Clear();
+                    ddlCidade.Items.Insert(0, new ListItem("-- Selecione --", ""));
+                }
             }
             catch (Exception ex)
             {
@@ -147,13 +171,21 @@ namespace Headin_APP0012023
         {
          
         }
-
         protected void ddlPais_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                GerarComboEstado(int.Parse(ddlPais.SelectedValue));
-                ddlEstado_SelectedIndexChanged(e, e);
+                if (ddlPais.SelectedIndex > 0)
+                {
+                    GerarComboEstado(int.Parse(ddlPais.SelectedValue));
+                    ddlEstado_SelectedIndexChanged(e, e);
+                }
+                else
+                {
+                    ddlEstado.Items.Clear();
+                    ddlEstado.Items.Insert(0, new ListItem("-- Selecione --", ""));
+                }
+                  
             }
             catch (Exception ex)
             {

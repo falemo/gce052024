@@ -5,11 +5,11 @@ using ToolAccessLayer;
 
 namespace DataAccessLayer
 {
-    public class TbNrSorteCampanhaDAL
+    public class NrSorteCampanhaDAL
     {
         private SQLServerConexion SqlConnection = new SQLServerConexion("headin2023fabrinioandessantanalemos");
 
-        public TbNrSorteCampanhaDAL()
+        public NrSorteCampanhaDAL()
         {
             SqlConnection.Open();
         }
@@ -69,6 +69,12 @@ namespace DataAccessLayer
             SqlConnection.LimparParametros();
             SqlConnection.AdicionarParametro("@id", MySqlDbType.Int64, id);
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbNrSorteCampanha WHERE id = @id");
+        }
+        public DataTable ConsultarNrSorteCampanhas(int idCampanha)
+        {
+            SqlConnection.LimparParametros();
+            SqlConnection.AdicionarParametro("@idCampanha", MySqlDbType.Int64, idCampanha);
+            return SqlConnection.ExecutaConsulta("SELECT * FROM TbNrSorteCampanha WHERE idCampanha = @idCampanha");
         }
     }
 }
