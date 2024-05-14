@@ -52,6 +52,12 @@
     <Reference Include="AspNet.ScriptManager.jQuery, Version=3.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.7.0\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelDataReader, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.7.0-develop00385\lib\net462\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.7.0-develop00385\lib\net462\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -73,6 +79,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -90,6 +97,7 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.3.0\lib\net45\System.Web.Http.dll</HintPath>
@@ -144,6 +152,10 @@
     <Content Include="assets\img\error-404-monochrome.svg" />
     <Content Include="Admin\CadastroEstado.aspx" />
     <Content Include="Admin\CadastroPais.aspx" />
+    <Content Include="css\Chart.css" />
+    <Content Include="Images\CampanhaDemolaySergipe.jpg" />
+    <Content Include="institucional\ExcelViewer.aspx" />
+    <Content Include="institucional\CampanhaDemolaySE.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -161,9 +173,44 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="css\HtmlSite.css" />
     <Content Include="css\styles.css" />
     <Content Include="DefaultTeste.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DeMolaySergipe_files\8fefd9f3a8adf8f9f58fe0c49f7a3744.jpg" />
+    <Content Include="DeMolaySergipe_files\apoios.jpg" />
+    <Content Include="DeMolaySergipe_files\apoios_a.jpg" />
+    <Content Include="DeMolaySergipe_files\arrow_left.png" />
+    <Content Include="DeMolaySergipe_files\arrow_right.png" />
+    <Content Include="DeMolaySergipe_files\bg_anos.png" />
+    <Content Include="DeMolaySergipe_files\bg_conheca.jpg" />
+    <Content Include="DeMolaySergipe_files\bg_doe.jpg" />
+    <Content Include="DeMolaySergipe_files\bg_envolver.jpg" />
+    <Content Include="DeMolaySergipe_files\bg_estado.jpg" />
+    <Content Include="DeMolaySergipe_files\bg_filantropia.png" />
+    <Content Include="DeMolaySergipe_files\bg_membros.png" />
+    <Content Include="DeMolaySergipe_files\bt_dmly.png" />
+    <Content Include="DeMolaySergipe_files\bt_facebook.png" />
+    <Content Include="DeMolaySergipe_files\bt_instagram.png" />
+    <Content Include="DeMolaySergipe_files\bt_twitter.png" />
+    <Content Include="DeMolaySergipe_files\bt_whatsapp.png" />
+    <Content Include="DeMolaySergipe_files\bt_youtube.png" />
+    <Content Include="DeMolaySergipe_files\convenios.jpg" />
+    <Content Include="DeMolaySergipe_files\convenios_a.jpg" />
+    <Content Include="DeMolaySergipe_files\css.css" />
+    <Content Include="DeMolaySergipe_files\d26c4d44a5b8b0d28c7cd2a266e0ef8b.jpg" />
+    <Content Include="DeMolaySergipe_files\demolayshop.png" />
+    <Content Include="DeMolaySergipe_files\dmbrasil.png" />
+    <Content Include="DeMolaySergipe_files\EmConstrucao.jpg" />
+    <Content Include="DeMolaySergipe_files\icon_place.png" />
+    <Content Include="DeMolaySergipe_files\menu.png" />
+    <Content Include="DeMolaySergipe_files\meuprimeiroritual.png" />
+    <Content Include="DeMolaySergipe_files\right_left.png" />
+    <Content Include="DeMolaySergipe_files\right_right.png" />
+    <Content Include="DeMolaySergipe_files\scdb.gif" />
+    <Content Include="DeMolaySergipe_files\SQDUgg64j1Y.html" />
+    <Content Include="DeMolaySergipe_files\www-player.css" />
+    <Content Include="DeMolaySergipe.html" />
     <Content Include="Images\01662e10-8bb8-410e-8180-730ebf3ceb3f.jpeg" />
     <Content Include="Images\059a70df-f263-41df-8b05-38bcbd48b97b.jpeg" />
     <Content Include="Images\2e77f49e-3bf6-4794-9b47-3562d6177b66.jpeg" />
@@ -171,15 +218,51 @@
     <Content Include="Images\576b26ba-5349-44b4-a182-6f3280a73034.jpeg" />
     <Content Include="Images\7e909a1e-8a41-467d-a0b7-ee2d0df0054f.jpeg" />
     <Content Include="Images\88c6b769-c9e1-4898-ba64-00dcf427094d.jpeg" />
+    <Content Include="Images\Brasao.png" />
+    <Content Include="Images\Brasao_GE.png" />
+    <Content Include="Images\Caminocomecaaqui.jpg" />
+    <Content Include="DeMolaySergipe_files\capitulos.jpg" />
     <Content Include="Images\d139ffa4-19a4-4ce5-9550-5e0e118aa35e.jpeg" />
+    <Content Include="Images\Demolay.png" />
+    <Content Include="Images\DemolaySergipe_Logo.png" />
+    <Content Include="Images\FundoPaginaWEB.png" />
+    <Content Include="Images\FundoSiteDemolaySergipe.png" />
+    <Content Include="Images\GCE.png" />
     <Content Include="Images\Logo2.jpeg" />
     <Content Include="Images\LogoHomem.jpeg" />
     <Content Include="Images\LogoMulher.jpeg" />
     <Content Include="Images\Logon_3.jpeg" />
     <Content Include="Images\Logo_1.jpeg" />
     <Content Include="Images\Logo_Neutro.jpeg" />
+    <Content Include="Images\DemolaySergipe.png" />
+    <Content Include="Images\Marca dagua.png" />
+    <Content Include="Images\Rodape_Demolaysergipe.png" />
+    <Content Include="img\arrow_bg_left.png" />
+    <Content Include="img\arrow_bg_right.png" />
+    <Content Include="img\bg_2.jpg" />
+    <Content Include="img\bg_alpha %281%29.png" />
+    <Content Include="img\bg_alpha.png" />
+    <Content Include="img\bg_depoimento.jpg" />
+    <Content Include="img\bg_depoimentos.jpg" />
+    <Content Include="img\bg_eventos.png" />
+    <Content Include="img\bg_footer.jpg" />
+    <Content Include="img\bg_header.png" />
+    <Content Include="img\bg_noticias.png" />
+    <Content Include="img\bg_numeros.jpg" />
+    <Content Include="img\bg_onde.png" />
+    <Content Include="img\bg_projetos.png" />
+    <Content Include="img\bg_quem.png" />
+    <Content Include="img\bg_quero.png" />
+    <Content Include="img\bt_doe.png" />
+    <Content Include="img\bt_shop.png" />
+    <Content Include="img\bt_sisdm.png" />
+    <Content Include="institucional\Eventos.html" />
+    <Content Include="institucional\financiademolayse.html" />
+    <Content Include="institucional\EmConstrucao.html" />
     <Content Include="js\datatables-simple-demo.js" />
+    <Content Include="js\HtmlScripts.js" />
     <Content Include="js\scripts.js" />
+    <Content Include="noticias\EmConstrucao.html" />
     <Content Include="PersonRegistration.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\styles.css" />
@@ -193,6 +276,10 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\canvasjs.min.js" />
+    <Content Include="Scripts\canvasjs.react.js" />
+    <Content Include="Scripts\canvasjs.stock.min.js" />
+    <Content Include="Scripts\canvasjs.stock.react.js" />
     <Content Include="Scripts\datatables-simple-demo.js" />
     <Content Include="libman.json" />
     <Content Include="Scripts\bootstrap.min.js.map" />
@@ -217,11 +304,22 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="DeMolaySergipe_files\8bwowYG5RNtA9FhY8KreTMIyRq72TB8rCtAEZTTrOhQ.js.transferir" />
+    <Content Include="DeMolaySergipe_files\ad_status.js.transferir" />
+    <Content Include="DeMolaySergipe_files\base.js.transferir" />
+    <Content Include="DeMolaySergipe_files\cast_sender%281%29.js.transferir" />
+    <Content Include="DeMolaySergipe_files\cast_sender.js.transferir" />
+    <Content Include="DeMolaySergipe_files\embed.js.transferir" />
+    <Content Include="DeMolaySergipe_files\ga.js.transferir" />
+    <Content Include="DeMolaySergipe_files\remote.js.transferir" />
+    <Content Include="DeMolaySergipe_files\www-embed-player.js.transferir" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <Content Include="Scripts\jquery.canvasjs.min.js" />
+    <Content Include="Scripts\jquery.canvasjs.stock.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -296,6 +394,20 @@
     </Compile>
     <Compile Include="Admin\CadastroPais.aspx.designer.cs">
       <DependentUpon>CadastroPais.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="institucional\ExcelViewer.aspx.cs">
+      <DependentUpon>ExcelViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="institucional\ExcelViewer.aspx.designer.cs">
+      <DependentUpon>ExcelViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="institucional\CampanhaDemolaySE.aspx.cs">
+      <DependentUpon>CampanhaDemolaySE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="institucional\CampanhaDemolaySE.aspx.designer.cs">
+      <DependentUpon>CampanhaDemolaySE.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -377,6 +489,7 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+    <Content Include="uploads\DadosCampanha.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

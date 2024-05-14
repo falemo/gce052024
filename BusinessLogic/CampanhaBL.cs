@@ -50,7 +50,7 @@ namespace BusinessLayer
                     campanha.VlrCampanha = (decimal)row["vlrCampanha"];
                     campanha.DtInicio = (DateTime)row["dtInicio"];
                     campanha.DtFim = (DateTime)row["dtFim"];
-                    campanha.FlAtiva = (bool)row["flAtiva"];
+                    campanha.FlAtiva = Convert.ToBoolean(row["flAtiva"]);
                     campanha.DsPix = row["dsPix"].ToString();
                     campanha.DsPixInfo = row["dsPixInfo"].ToString();
 

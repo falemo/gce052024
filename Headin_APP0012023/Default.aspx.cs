@@ -43,6 +43,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
+                Response.Redirect("DeMolaySergipe.html");
                 throw ex;
             }
         }

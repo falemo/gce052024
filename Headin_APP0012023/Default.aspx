@@ -1,4 +1,4 @@
-﻿<%@ Page Title="VidasFit" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Headin_APP0012023.Default" %>
+﻿<%@ Page Title="Demolay Sergipe" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Headin_APP0012023.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <html lang="en">
     <head>
@@ -6,11 +6,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="plataforma de serviços que registra a vida das pessoas em termos de atividade física e médica e as conecta com profissionais da saúde e do fitness" content="" />
-        <meta name="VidasFit" content="" />
-        <title>Dashboard - VidasFit</title>
+        <meta name="Demolay SE" content="" />
+        <title>Dashboard - Demolay SE</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="Scripts/scripts.js"></script>
     </head>
     <body class="sb-nav-fixed">
        <div id="layoutSidenav_content">

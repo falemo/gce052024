@@ -35,3 +35,26 @@ function logout() {
             window.location.href = '/login'; // Example redirection
         });
 }
+
+            // Função para lidar com o clique em um link de menu que possui submenus
+    function handleMenuClick(event) {
+        event.preventDefault(); // Impede o comportamento padrão de clicar em um link
+
+    // Obtém o elemento do submenu correspondente
+    var submenu = event.target.nextElementSibling;
+
+    // Se o submenu estiver oculto, mostra; caso contrário, oculta
+    if (submenu.style.display === "block") {
+        submenu.style.display = "none";
+                } else {
+        submenu.style.display = "block";
+                }
+            }
+
+    // Adiciona manipuladores de eventos a todos os links de menu com submenus
+    document.addEventListener("DOMContentLoaded", function () {
+                var menuLinks = document.querySelectorAll('.nav-link.collapsed');
+    menuLinks.forEach(function (link) {
+        link.addEventListener('click', handleMenuClick);
+                });
+            });

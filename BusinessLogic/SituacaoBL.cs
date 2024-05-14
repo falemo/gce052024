@@ -40,12 +40,12 @@ namespace BusinessLayer
             {
                 situacao.Id = (int)row["Id"];
                 situacao.Descricao = (string)row["Descricao"];
-                situacao.FlBloqueado = (bool)row["FlBloqueado"];
-                situacao.FlNovo = (bool)row["FlNovo"];
-                situacao.FlSuspenso = (bool)row["FlSuspenso"];
-                situacao.FlAtivo = (bool)row["FlAtivo"];
+                situacao.FlBloqueado = Convert.ToBoolean(row["FlBloqueado"]);
+                situacao.FlNovo = Convert.ToBoolean(row["FlNovo"]);
+                situacao.FlSuspenso = Convert.ToBoolean(row["FlSuspenso"]);
+                situacao.FlAtivo = Convert.ToBoolean(row["FlAtivo"]);
                 situacao.IdGrupo = (int)row["IdGrupo"];
-                situacao.FlEstadoFinal = (bool)row["FlEstadoFinal"];
+                situacao.FlEstadoFinal = Convert.ToBoolean(row["FlEstadoFinal"]);
             }
             return situacao;
         }

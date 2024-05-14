@@ -52,7 +52,7 @@ namespace BusinessLayer
                 {
                     tipopessoa.Id = (int)row["Id"];
                     tipopessoa.DsTipo = (string)row["dsTipo"];
-                    tipopessoa.Flativo = (bool)row["flAtivo"];
+                    tipopessoa.Flativo = Convert.ToBoolean(row["flAtivo"]);
                 }
             }
             return tipopessoa;

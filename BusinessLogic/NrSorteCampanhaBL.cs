@@ -51,9 +51,9 @@ namespace BusinessLayer
                 nrSorteCampanha.Pessoa = pessoaBL.ObterPessoa((int)row["idPessoa"]);
                 nrSorteCampanha.VlrAportado = (decimal)row["vlrAportado"];
                 nrSorteCampanha.NmarqComprovante = row["nmarqComprovante"].ToString();
-                nrSorteCampanha.FlValidado = (bool)row["flValidado"];
-                nrSorteCampanha.FlProcesado = (bool)row["flProcessado"];
-                nrSorteCampanha.FlCupom = (bool)row["flCupom"];
+                nrSorteCampanha.FlValidado = Convert.ToBoolean(row["flValidado"]);
+                nrSorteCampanha.FlProcesado = Convert.ToBoolean(row["flProcessado"]);
+                nrSorteCampanha.FlCupom = Convert.ToBoolean(row["flCupom"]);
                 CampanhaBL campanhaBL = new CampanhaBL();
                 nrSorteCampanha.Campanha = campanhaBL.ObterCampanha((int)row["idCampanha"]);
             }
@@ -77,9 +77,9 @@ namespace BusinessLayer
 
                 nrSorteCampanha.VlrAportado = (decimal)row["vlrAportado"];
                 nrSorteCampanha.NmarqComprovante = row["nmarqComprovante"].ToString();
-                nrSorteCampanha.FlValidado = (bool)row["flValidado"];
-                nrSorteCampanha.FlProcesado = (bool)row["flProcessado"];
-                nrSorteCampanha.FlCupom = (bool)row["flCupom"];
+                nrSorteCampanha.FlValidado = Convert.ToBoolean(row["flValidado"]);
+                nrSorteCampanha.FlProcesado = Convert.ToBoolean(row["flProcessado"]);
+                nrSorteCampanha.FlCupom = Convert.ToBoolean(row["flCupom"]);
 
                 CampanhaBL campanhaBL = new CampanhaBL();
                 nrSorteCampanha.Campanha = campanhaBL.ObterCampanha((int)row["idCampanha"]);

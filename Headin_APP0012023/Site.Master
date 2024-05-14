@@ -9,16 +9,25 @@
        <link href="css/styles.css" rel="stylesheet" />
        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	    <!-- Google tag (gtag.js) -->
+	    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RNRQK0QQB6"></script>
+	    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'G-RNRQK0QQB6');
+	    </script>
    </head>
 
    <body class="sb-nav-fixed">
        <form runat="server">
            <header>
-               <h1>VidasFit</h1>
+               <h1>Demolay Sergipe</h1>
            </header>
            <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
                <!-- Navbar Brand-->
-               <a class="navbar-brand ps-3" href="Default.aspx">Vidas Fit</a>
+               <a class="navbar-brand ps-3" href="Default.aspx">Demolay Sergipe</a>
                <!-- Sidebar Toggle-->
                <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
                <!-- Navbar Search-->
@@ -80,7 +89,7 @@
                 <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted"><p>&copy; <%: DateTime.Now.Year %> - Copyright Grande Conselho Demolay Sergipe</p></div>
+                        <div class="text-muted"><p>&copy; <%: DateTime.Now.Year %> -  - CNPJ: 12.551.393/0001-00 - Copyright Grande Conselho Demolay Sergipe</p></div>
                         <div>
                             <a href="#">Privacy Policy</a>
                             &middot;
@@ -101,5 +110,30 @@
        <script src="assets/demo/chart-bar-demo.js"></script>
        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
        <script src="js/datatables-simple-demo.js"></script>
+       <script src="Scripts/scripts.js"> </script>
+        <script>
+            // Função para lidar com o clique em um link de menu que possui submenus
+            function handleMenuClick(event) {
+                event.preventDefault(); // Impede o comportamento padrão de clicar em um link
+
+                // Obtém o elemento do submenu correspondente
+                var submenu = event.target.nextElementSibling;
+
+                // Se o submenu estiver oculto, mostra; caso contrário, oculta
+                if (submenu.style.display === "block") {
+                    submenu.style.display = "none";
+                } else {
+                    submenu.style.display = "block";
+                }
+            }
+
+            // Adiciona manipuladores de eventos a todos os links de menu com submenus
+            document.addEventListener("DOMContentLoaded", function () {
+                var menuLinks = document.querySelectorAll('.nav-link.collapsed');
+                menuLinks.forEach(function (link) {
+                    link.addEventListener('click', handleMenuClick);
+                });
+            });
+        </script>
    </body>
 </html>

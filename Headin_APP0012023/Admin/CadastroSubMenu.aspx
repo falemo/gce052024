@@ -1,4 +1,4 @@
-﻿<%@ Page Title="VidasFit" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastroSubMenu.aspx.cs" Inherits="Headin_APP0012023.CadastroSubMenu" %>
+﻿<%@ Page Title="Demolay Sergipe" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastroSubMenu.aspx.cs" Inherits="Headin_APP0012023.CadastroSubMenu" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-5">
         <h2>Manutenção de Países</h2>
@@ -82,7 +82,7 @@
         <asp:TemplateField>
             <HeaderTemplate>Professional</HeaderTemplate>
             <ItemTemplate>
-                <asp:CheckBox ID="chkProfessional" runat="server" Checked='<%# Eval("flProfissional") %>'></asp:CheckBox>
+                <asp:CheckBox ID="chkProfessional" runat="server" Checked='<%# Convert.ToBoolean(Eval("flProfissional")) %>'></asp:CheckBox>
             </ItemTemplate>
             <EditItemTemplate>
                 <asp:CheckBox ID="chkProfessional" runat="server" Checked='<%# Bind("flProfissional") %>'></asp:CheckBox>
@@ -91,7 +91,7 @@
         <asp:TemplateField>
             <HeaderTemplate>Habilitado</HeaderTemplate>
             <ItemTemplate>
-                <asp:CheckBox ID="chkflHabilitado" runat="server" Checked='<%# Eval("flHabilitado") %>'></asp:CheckBox>
+                <asp:CheckBox ID="chkflHabilitado" runat="server" Checked='<%# Convert.ToBoolean(Eval("flHabilitado")) %>'></asp:CheckBox>
             </ItemTemplate>
             <EditItemTemplate>
                 <asp:CheckBox ID="chkflHabilitado" runat="server" Checked='<%# Bind("flHabilitado") %>'></asp:CheckBox>
@@ -118,7 +118,7 @@
         <asp:TemplateField>
             <HeaderTemplate>Administrador</HeaderTemplate>
             <ItemTemplate>
-                <asp:CheckBox ID="chkfladministrador" runat="server" Checked='<%# Eval("fladministrador") %>'></asp:CheckBox>
+                <asp:CheckBox ID="chkfladministrador" runat="server" Checked='<%# Convert.ToBoolean(Eval("fladministrador")) %>'></asp:CheckBox>
             </ItemTemplate>
             <EditItemTemplate>
                 <asp:CheckBox ID="chkfladministrador" runat="server" Checked='<%# Bind("fladministrador") %>'></asp:CheckBox>

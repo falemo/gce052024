@@ -72,8 +72,8 @@ namespace BusinessLogic
                 pessoa.Situacao = situacao.ObterSituacao((int)row["idSituacao"]);
 
                 pessoa.PwdUsuario = ""; // (string)row["PwdUsuario"];
-                pessoa.FlProfessional = (bool)row["FlProfessional"];
-                pessoa.Fladministrador = (bool)row["fladministrador"];
+                pessoa.FlProfessional = Convert.ToBoolean(row["FlProfessional"]);
+                pessoa.Fladministrador = Convert.ToBoolean(row["fladministrador"]);
 
                 TipoPessoalBL tipoPessoa = new TipoPessoalBL();
                 pessoa.Tipopessoa = tipoPessoa.ObterTipoPessoa((int)row["idTipoPessoa"]);

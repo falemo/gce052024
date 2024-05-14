@@ -38,6 +38,10 @@ namespace BusinessLayer
             return _registroCampanhaDAL.ConsultarRegistrosCampanha();
         }
 
+        public DataTable ConsultarVlrAcumuladoRegistrosCampanha(int idCampanha)
+        {
+            return _registroCampanhaDAL.ConsultarValorRegistrosCampanha(idCampanha);
+        }
         public TbRegistroCampanha ObterRegistroCampanha(int id)
         {
             DataTable dataTable = _registroCampanhaDAL.ConsultarRegistroCampanha(id);
@@ -49,7 +53,7 @@ namespace BusinessLayer
                 registroCampanha.Campanha = campanha.ObterCampanha((int)row["idCampanha"]);
                 registroCampanha.DtRegistro = (DateTime)row["dtRegistro"];
                 registroCampanha.VlrRegistrado = (decimal)row["VlrRegistrado"];
-                registroCampanha.FlNegativo = (bool)row["flNegativo"];
+                registroCampanha.FlNegativo = Convert.ToBoolean(row["flNegativo"]);
                 PessoaBL pessoa = new PessoaBL();
                 registroCampanha.Pessoa = pessoa.ObterPessoa((int)row["idPessoa"]);
                 registroCampanha.DsResumo = (string)row["dsResumo"];
@@ -72,7 +76,7 @@ namespace BusinessLayer
                 registro.Campanha = campanha.ObterCampanha((int)row["idCampanha"]);
                 registro.DtRegistro = (DateTime)row["dtRegistro"];
                 registro.VlrRegistrado = (decimal)row["vlrRegistrado"];
-                registro.FlNegativo = (bool)row["flNegativo"];
+                registro.FlNegativo = Convert.ToBoolean(row["flNegativo"]);
                 PessoaBL pessoa = new PessoaBL();
                 registro.Pessoa = pessoa.ObterPessoa((int)row["idPessoa"]);
                 registro.DsResumo = row["dsResumo"].ToString();

@@ -56,7 +56,7 @@ namespace BusinessLayer
                     session.SessionID = row["session_id"].ToString();
                     session.CreatedAt = (DateTime)row["created_at"];
                     session.UpdatedAt = (DateTime)row["updated_at"];
-                    session.FlLogin = (bool)row["FlLogin"];
+                    session.FlLogin = Convert.ToBoolean(row["FlLogin"]);
                     sessionarray[conta] = session;
                     conta++;
                 }
@@ -76,7 +76,7 @@ namespace BusinessLayer
                     session.SessionID = row["session_id"].ToString();
                     session.CreatedAt = (DateTime)row["created_at"];
                     session.UpdatedAt = (DateTime)row["updated_at"];
-                    session.FlLogin = (bool)row["FlLogin"];
+                    session.FlLogin = Convert.ToBoolean(row["FlLogin"]);
                 }
             }
             return session;

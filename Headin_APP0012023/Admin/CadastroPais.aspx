@@ -1,4 +1,4 @@
-﻿<%@ Page Title="VidasFit" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastroPais.aspx.cs" Inherits="Headin_APP0012023.CadastroPais" %>
+﻿<%@ Page Title="Demolay Sergipe" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastroPais.aspx.cs" Inherits="Headin_APP0012023.CadastroPais" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-5">
         <h2>Manutenção de Países</h2>

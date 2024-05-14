@@ -124,5 +124,10 @@
       <Name>ModelLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Headin_APP0012023\institucional\CampanhaDemolaySE.aspx">
+      <Link>CampanhaDemolaySE.aspx</Link>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

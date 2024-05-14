@@ -56,6 +56,12 @@ namespace DataAccessLayer
             SqlConnection.LimparParametros();
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbRegistroCampanha");
         }
+        public DataTable ConsultarValorRegistrosCampanha(int idCampanha)
+        {
+            SqlConnection.LimparParametros();
+            SqlConnection.AdicionarParametro("@idCampanha", MySqlDbType.Int64, idCampanha);
+            return SqlConnection.ExecutaConsulta("select id,  IFNULL(SUM(vlrRegistrado), 0) as vlracumulado from TbRegistroCampanha where idCampanha = @idCampanha group by id");
+        }
 
         public DataTable ConsultarRegistroCampanha(int id)
         {

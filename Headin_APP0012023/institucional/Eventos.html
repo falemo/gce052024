@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+
+	<title>DeMolay Sergipe</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="Author" content="DeMolay Sergipe - contato@demolaysergipe.org.br" />
+	<meta name="Language" content="Portuguese" />
+	<meta name="country" content="Aracaju" />
+	<meta name="Robots" content="index, follow" />
+	<meta name="msapplication-TileColor" content="#00a300" />
+	<meta name="theme-color" content="#ffffff" />
+
+	<script type="text/javascript" async="" src="../DeMolaySergipe_files/ga.js.transferir"></script>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RNRQK0QQB6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-RNRQK0QQB6');
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="../DeMolaySergipe_files/css.css" />
+
+	<style>
+		.area_footer {
+			border: none;
+		}
+	</style>
+	<script type="text/javascript">
+
+		var doc = function (id) { return document.getElementById(id); };
+
+		function show_default() { doc("div_show").scrollIntoView({ behavior: "smooth" }); }
+
+		function show_defaults() {
+			window.scrollTo(0, 0); doc("div_shows").scrollIntoView({ behavior: "smooth" }); let width = window.innerWidth;
+
+			if (width < 800) { var time = 500; } if (width >= 800 && width < 1000) { var time = 600; } if (width >= 1000) { var time = 800; }
+
+			setTimeout(show_default, time);
+		}
+
+		setTimeout(show_defaults, 100);
+
+		function show_a() { doc("menu_a").style.marginLeft = "0"; doc("div_menu").style.display = 'block'; }
+
+		function show_b() { doc("menu_b").style.marginLeft = "0"; doc("div_menu").style.display = 'block'; }
+
+		function show_c() { doc("menu_c").style.marginLeft = "0"; doc("div_menu").style.display = 'block'; }
+
+		function show_d() { doc("menu_d").style.marginLeft = "0"; doc("div_menu").style.display = 'block'; }
+
+		function show_e() { doc("menu_e").style.marginLeft = "0"; doc("div_menu").style.display = 'block'; }
+
+		function show_menu() { doc("menu_show").style.marginLeft = "0"; doc("div_menu").style.display = 'block'; }
+
+		function hide_menu() { doc("menu_a").style = ""; doc("menu_b").style = ""; doc("menu_c").style = ""; doc("menu_d").style = ""; doc("menu_e").style = ""; doc("menu_show").style = ""; doc("div_menu").style.display = 'none'; }
+
+		let slideU = (target, duration = 400) => { target.style.transitionProperty = 'all ease-in'; target.style.transitionDuration = duration + 'ms'; target.style.height = target.scrollHeight + 'px'; target.scrollHeight; target.style.overflow = 'hidden'; target.style.height = 0; target.style.opacity = 0; window.setTimeout(() => { target.style.display = 'none'; }, duration); }
+
+		let slideD = (target, duration = 500) => { target.style.opacity = 0; target.style.float = "left"; target.style.display = "block"; let height = target.scrollHeight; target.style.transition = "all ease-in"; target.style.transitionDuration = duration + 'ms'; target.style.overflow = 'hidden'; target.style.width = "100%"; target.style.height = 0; target.scrollHeight; target.style.height = height + 'px'; window.setTimeout(() => { target.style.removeProperty('height'); target.style.removeProperty('opacity'); target.style.removeProperty('overflow'); }, duration); window.setTimeout(() => { target.style.overflow = 'hidden'; let heights = target.scrollHeight; target.style.height = "auto"; target.style.removeProperty('overflow'); }, (duration + 100)); }
+
+		var slideT = (target, duration = 400) => { if (window.getComputedStyle(target).display === 'none') { return slideD(target, duration); } else { return slideU(target, duration); } }
+
+		function mostra_submenu(id, ids) { slideT(doc("submenu_" + id), 300); }
+		function mostra_submenus(id, ids) { slideT(doc("ssubmenu_" + id), 400); }
+
+		var scrolling = null;
+
+		function scroll_left(dados) { var d = doc(dados); d.scrollLeft = d.scrollLeft - 10; scrolling = window.setTimeout(function () { scroll_left(dados); }, 20); }
+
+		function scroll_right(dados) { var d = doc(dados); d.scrollLeft = d.scrollLeft + 10; scrolling = window.setTimeout(function () { scroll_right(dados); }, 20); }
+
+		function stop_scroll() { window.clearTimeout(scrolling); }
+
+		function area_ver(i) { slideT(doc("div_ver_" + i), 200); doc("div_ver_" + i + "_bt").onclick = function () { area_fechar(i) }; }
+		function area_fechar(i) { slideT(doc("div_ver_" + i), 200); doc("div_ver_" + i + "_bt").onclick = function () { area_ver(i) }; }
+
+		function carregando() { msg = '<img src="../img/carregandos.gif" width="152" height="100" />'; doc("div_msg").innerHTML = msg; }
+
+		function forms(fname) { f = doc("" + fname + ""); d = f.elements; }
+		function search() { oPagina = doc('pagina'); oPaginas = doc('paginas'); oOrdem = doc('ordem'); }
+
+		xmlhttp = new_xmlttp(); function new_xmlttp() { var xmlhttp = false; try { xmlhttp = new ActiveXObject("Msxml2.XMLHTTP"); } catch (e) { try { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); } catch (E) { xmlhttp = false; } } if (!xmlhttp && typeof XMLHttpRequest != 'undefined') { xmlhttp = new XMLHttpRequest(); } return xmlhttp; }
+
+		function padrao() { xmlhttp.open("POST", url, true, str); xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=iso-8859-1"); xmlhttp.onreadystatechange = function () { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { eval(xmlhttp.responseText); } } }
+
+		function searchos(valor) { teste = '&ordem=' + doc('ordem').value + '&ordenar=' + doc('ordenar').value + '&paginacao=' + valor + '&pagina=' + doc('pagina').value + '&pg_atual=' + doc('pg_atual').value + '&pg_total=' + doc('pg_total').innerHTML; }
+
+		function pesquisar(valor) { forms("form_pesquisa"); search(); str = "acao=pesquisar&id=" + d.pesquisa_id.value + "&nome=" + d.pesquisa_nome.value + "&uf=" + d.pesquisa_uf.value + "&tipo=" + d.pesquisa_tipo.value; searchos(valor); str += teste; url = "adm.php?"; padrao(); xmlhttp.send(str); }
+
+		function enter(caracter) { if (window.event) { var tecla = event.keyCode; } else { var tecla = caracter.which; } if (tecla == 13) { pesquisar(document.form_pesquisa, true); return false; } else { return true; } }
+
+		function limpar() { doc("retorno_pesquisa").innerHTML = ''; doc("area_pesquisa").style.display = 'none'; document.form_pesquisa.reset(); }
+
+		function asc(ord) { doc('ordem').value = ord; doc('ordenar').value = "ASC"; pesquisar(document.form_pesquisa, true); }
+		function desc(ord) { doc('ordem').value = ord; doc('ordenar').value = "DESC"; pesquisar(document.form_pesquisa, true); }
+
+		function filtradata(campo) { var s = ""; var cp = ""; vr = campo.value; tam = vr.length; for (i = 0; i < tam; i++) { if (vr.substring(i, i + 1) != "/" && vr.substring(i, i + 1) != "-" && vr.substring(i, i + 1) != "." && vr.substring(i, i + 1) != ":" && vr.substring(i, i + 1) != ",") { s = s + vr.substring(i, i + 1); } } campo.value = s; return cp = campo.value; }
+
+		function formata_data(campo, caracter) { if (window.event) { var tecla = event.keyCode; } else { var tecla = caracter.which; } if ((tecla == 111) || (tecla == 193)) { if ((campo.value.length != 3) && (campo.value.length != 6)) { campo.value = campo.value.substring(0, (campo.value.length - 1)); } } else { campo.value = filtradata(campo); vr = campo.value; tam = vr.length; if ((tam > 2) && (tam <= 4)) { campo.value = vr.substr(0, 2) + '/' + vr.substr(2, tam); } if ((tam > 4) && (tam <= 8)) { campo.value = vr.substr(0, 2) + '/' + vr.substr(2, 2) + '/' + vr.substr(4, tam); } } }
+
+		function valida_data(digData) { var data = digData.value; var bissexto = 0; var tam = data.length; if (digData.value != '') { if (tam >= 10) { var dia = data.substr(0, 2); var mes = data.substr(3, 2); var ano = data.substr(6, 4); if ((ano > 1900) || (ano < 2100)) { switch (mes) { case '01': case '03': case '05': case '07': case '08': case '10': case '12': if (dia <= 31) { return true; } break; case '04': case '06': case '09': case '11': if (dia <= 30) { return true; } break; case '02': if ((ano % 4 == 0) || (ano % 100 == 0) || (ano % 400 == 0)) { bissexto = 1; } if ((bissexto == 1) && (dia <= 29)) { return true; } if ((bissexto != 1) && (dia <= 28)) { return true; } break; } } digData.value = ""; digData.focus(); return false; } digData.value = ""; digData.focus(); return false; } }
+
+		document.onkeydown = function (evt) { evt = evt || window.event; if (evt.keyCode == 27) { fecha_box(); } };
+
+		function fecha_box() { doc("div_box").style.transition = "visibility 0.3s, opacity 0.3s linear"; doc("div_box").style.opacity = 0; doc("div_box").style.visibility = "hidden"; document.body.style.overflow = "scroll"; doc('div_box').style.background = 'url(../img/bg_alpha.png)'; setTimeout(function () { doc("div_box").style.display = "none"; }, 300); }
+
+		function show_photos(f, c) {
+			doc("photo").innerHTML = "<img id='imgs' src='media/photos/" + f + "' alt='' />";
+			doc("default_author").innerHTML = "Foto: " + doc("div_author_" + c).innerHTML;
+			doc("default_title").innerHTML = doc("div_photo_" + c).innerHTML;
+
+			setTimeout(function () { var height = doc("imgs").clientHeight; doc("photo").style.height = "auto"; }, 300);
+		}
+	</script>
+</head>
+<body>
+	<div id="div_box" class="cp_total">
+		<div id="div_box_area" class="cp_areas">
+			<div class="cp_titulo" id="div_box_titulo"></div>
+			<div id="div_cp_area" class="cp_area">
+				<div class="clear"></div>
+				<div id="div_box_conteudo"></div>
+			</div>
+		</div>
+	</div>
+	<div class="area_total">
+		<div><div id="div_menu" class="sidenav_bg" onClick="hide_menu()"></div></div>
+		<div class="area_header">
+			<div class="header_left"><img src="../Images/Marca dagua.png" onclick="location.href=&#39;../&#39;" /></div>
+			<div class="header_top">
+				<div class="header_menu">
+					<input type="button" class="menu" value="INÍCIO" onclick="location.href=&#39;../&#39;" />
+					<input type="button" class="menu" value="ORDEM DEMOLAY" onclick="show_a();" />
+					<input type="button" class="menu" value="DEMOLAY SERGIPE" onclick="show_b();" />
+					<input type="button" class="menu" value="ESTRUTURA E GOVERNO" onclick="show_c();" />
+					<input type="button" class="menu" value="CONTEÚDO" onclick="show_d();" />
+					<input type="button" class="menu" value="CAMPANHAS" onclick="show_e();" />
+				</div>
+				<div class="header_menus"><img src="../DeMolaySergipe_files/menu.png" onclick="show_menu();" /></div>
+			</div>
+			<div class="header_right">
+				<input type="button" class="bt_shop" value="SHOP" onclick="window.open(&#39;https://www.demolayshop.com&#39;)" />
+				<input type="button" class="bt_sisdm" value="SISSE" onclick="window.open(&#39;https://sis.demolaysergipe.org.br&#39;)" />
+			</div>
+		</div>
+		<div class="header_bg">
+			<div class="myslide fade" onclick="window.open(&#39;https://demolaysergipe.org.br/&#39;);" style="cursor: pointer; display: none;">
+				<div style="background: url(../Images/FundoSiteDemolaySergipe.png) no-repeat center; background-size: cover; margin: 0; padding-bottom: 53%; width: 100%; display: inline-block; vertical-align: middle; ">
+					<div class="prev" onclick="plusSlide(-1)">&#10094;</div>
+					<div class="next" onclick="plusSlide(1)">&#10095;</div>
+				</div>
+			</div>
+			<div class="myslide fade" onclick="window.open(&#39;https://ocaminhocomecaaqui.com.br/&#39;);" style="cursor: pointer; display: block;">
+				<div style="background: url(../Images/Caminocomecaaqui.jpg) no-repeat center; background-size: cover; margin: 0; padding-bottom: 53%; width: 100%; display: inline-block; vertical-align: middle; ">
+					<div class="prev" onclick="plusSlide(-1)">&#10094;</div>
+					<div class="next" onclick="plusSlide(1)">&#10095;</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var slideIndex = 1; showSlide(slideIndex); function plusSlide(n) { if (!e) var e = window.event; e.cancelBubble = true; if (e.stopPropagation) e.stopPropagation(); showSlide(slideIndex += n); } function showSlide(n) { var i; var slide = document.getElementsByClassName("myslide"); if (n > slide.length) { slideIndex = 1; } if (n < 1) { slideIndex = slide.length; } for (i = 0; i < slide.length; i++) { slide[i].style.display = "none"; } slide[slideIndex - 1].style.display = "block"; } var slideIndex = 0; carousel(); function carousel() { var i; var x = document.getElementsByClassName("myslide"); for (i = 0; i < x.length; i++) { x[i].style.display = "none"; } slideIndex++; if (slideIndex > x.length) { slideIndex = 1; } x[slideIndex - 1].style.display = "block"; setTimeout(carousel, 8000); }
+		</script>
+		<div id="menu_a" class="sidenav">
+			<div id="menu_1">
+				<div class="smenu_titulos" id="menus_1" onclick="mostra_submenu(1)">A Ordem DeMolay</div>
+				<div id="submenu_1" style="display: none;">
+					<div class="smenu_link" onclick="location.href=&#39;https://www.demolaybrasil.org.br/institucional/O-que-e-a-Ordem-DeMolay&#39;">DEMOLAY BRASIL</div>
+				</div>
+			</div>
+		</div>
+		<div id="menu_b" class="sidenav">
+			<div id="menu_2">
+				<div class="smenu_titulos" id="menus_2" onclick="mostra_submenu(2)">Capitulos</div>
+				<div id="submenu_2" style="display: none;">
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Sergipe Del Rey N 86</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Tio José Viera Filho N 731</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Neópolis N 748</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Felismino Menezes N 751</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Itabaiana N 797</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Caveleiros de Schebna N 1006</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Prof. Zenilde de Melo N 1193</div>
+				</div>
+			</div>
+			<div id="menu_3">
+				<div class="smenu_titulos" id="menus_3" onclick="mostra_submenu(3)">Priorados</div>
+				<div id="submenu_3" style="display: none;">
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Cavaleiros do Santo Graal N 146</div>
+				</div>
+			</div>
+			<div id="menu_4">
+				<div class="smenu_titulos" id="menus_4" onclick="mostra_submenu(4)">Castelos</div>
+				<div id="submenu_4" style="display: none;">
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Promessa Sergipana N 110</div>
+				</div>
+			</div>
+			<div id="menu_5">
+				<div class="smenu_titulos" id="menus_5" onclick="mostra_submenu(5)">Clube de Mães</div>
+				<div id="submenu_5" style="display: none;">
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Emabixadores Del Rey N 34</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Estrela da Serra N 156</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Luz do Sertão N 208</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Guardiões de Schebna N 246</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Guardiões da Juventude N 426</div>
+				</div>
+			</div>
+			<div id="menu_6">
+				<div class="smenu_titulos" id="menus_6" onclick="mostra_submenu(6)">Corte</div>
+				<div id="submenu_6" style="display: none;">
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Serigy N 84</div>
+				</div>
+			</div>
+
+			<div id="menu_7">
+				<div class="smenu_titulos" id="menus_8" onclick="mostra_submenu(7)">Redes Sociais</div>
+				<div id="submenu_7" style="display: none;">
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Instagram</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Facebook</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Twitter</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Youtube</div>
+				</div>
+			</div>
+		</div>
+		<div id="menu_c" class="sidenav">
+			<div id="menu_10">
+				<div class="smenu_titulos" id="menus_10" onclick="mostra_submenu(10)">Lideranças Estaduais</div>
+				<div id="submenu_10" style="display: none;">
+					<div id="menu_11">
+						<div class="smenu_titulos" id="menus_11" onclick="mostra_submenu(11)" style="color: #F1C917;">Diretoria Executiva</div>
+						<div id="submenu_11" style="display: none;">
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Administrações Anteriores</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Comissões</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Diretoria Executiva</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Past Grandes Mestres Estaduais</div>
+						</div>
+					</div>
+					<div id="menu_12">
+						<div class="smenu_titulos" id="menus_12" onclick="mostra_submenu(12)" style="color: #F1C917;">Gabinete Estadual</div>
+						<div id="submenu_12" style="display: none;">
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Administrações Anteriores do Gabinete Nacional</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Líderes Nacionais</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Past Mestres Conselheiros Estaduais</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Projetos do Gabinete Estaduais</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Secretarias do Gabinete Estaduais</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="menu_13">
+				<div class="smenu_titulos" id="menus_13" onclick="mostra_submenu(13)">Alumni Sergipe</div>
+				<div id="submenu_13" style="display: none;">
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Comissões</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Conselho Fiscal</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Dia Nacional do Sênior DeMolay</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Diretoria Executiva</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Ex-Presidentes e Vices</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - O Início</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Projetos</div>
+					<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Quem Somos?</div>
+				</div>
+			</div>
+		</div>
+		<div id="menu_d" class="sidenav">
+			<div id="menu_14">
+				<div class="smenu_titulos" id="menus_14" onclick="location.href=&#39;../noticias/EmConstrucao.html&#39;">Notícias</div>
+				<div id="submenu_14" style="display: none;"></div>X
+			</div>
+		</div>
+		<div id="menu_e" class="sidenav">
+			<div id="menu_17">
+				<div class="smenu_titulos" id="menus_17" onclick="location.href=&#39;../institucional/financiademolayse.html&#39;">Financia Demolay SE</div>
+				<div id="submenu_17" style="display: none;"></div>
+			</div>
+		</div>
+		<div id="menu_show" class="sidenav">
+			<div class="header_rights">
+				<input type="button" class="bt_shop" value="SHOP" onclick="window.open(&#39;https://www.demolayshop.com&#39;)" />
+				<input type="button" class="bt_sisdm" value="SISSE" onclick="window.open(&#39;https://sis.demolaysergipe.org.br&#39;)" />
+			</div>
+			<div id="menu_18">
+				<div class="smenu_titulo" id="menus_18" onclick="mostra_submenu(18)">Ordem DeMolay</div>
+				<div id="submenu_18" style="display: none;">
+					<div class="smenu_titulos" id="smenus_1" onclick="mostra_submenus(1)">A Ordem DeMolay</div>
+					<div id="ssubmenu_1" style="display: none;">
+						<div class="smenu_link" onclick="location.href=&#39;https://www.demolaybrasil.org.br/institucional/O-que-e-a-Ordem-DeMolay&#39;">DEMOLAY BRASIL</div>
+					</div>
+				</div>
+			</div>
+			<div id="menu_19">
+				<div class="smenu_titulo" id="menus_19" onclick="mostra_submenu(19)">Comunidade</div>
+				<div id="submenu_19" style="display: none;">
+					<div class="smenu_titulos" id="smenus_7" onclick="mostra_submenus(7)">Capitulos</div>
+					<div id="ssubmenu_7" style="display: none;">
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Sergipe Del Rey N 86</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Tio José Viera Filho N 731</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Neópolis N 748</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Felismino Menezes N 751</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Itabaiana N 797</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Caveleiros de Schebna N 1006</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Prof. Zenilde de Melo N 1193</div>
+					</div>
+					<div class="smenu_titulos" id="smenus_8" onclick="mostra_submenus(8)">Priorados</div>
+					<div id="ssubmenu_8" style="display: none;">
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Cavaleiros do Santo Graal N 146</div>
+					</div>
+					<div class="smenu_titulos" id="smenus_9" onclick="mostra_submenus(9)">Castelo</div>
+					<div id="ssubmenu_9" style="display: none;">
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Promessa Sergipana N 110</div>
+					</div>
+					<div class="smenu_titulos" id="smenus_10" onclick="mostra_submenus(10)">Clube de Mães</div>
+					<div id="ssubmenu_10" style="display: none;">
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Emabixadores Del Rey N 34</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Estrela da Serra N 156</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Luz do Sertão N 208</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Guardiões de Schebna N 246</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Guardiões da Juventude N 426</div>
+					</div>
+					<div class="smenu_titulos" id="smenus_11" onclick="mostra_submenus(11)">Corte</div>
+					<div id="ssubmenu_11" style="display: none;">
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Serigy N 84</div>
+					</div>
+					<div class="smenu_titulos" id="smenus_12" onclick="mostra_submenus(12)">Redes Sociais</div>
+					<div id="ssubmenu_12" style="display: none;">
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Instagram</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Facebook</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Twitter</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Youtube</div>
+					</div>
+				</div>
+			</div>
+			<div id="menu_20">
+				<div class="smenu_titulo" id="menus_20" onclick="mostra_submenu(20)">Lideranças Estaduais</div>
+				<div id="submenu_20" style="display: none;">
+					<div class="smenu_titulos" id="smenus_13" onclick="mostra_submenus(13)">Grande Conselho</div>
+					<div id="ssubmenu_13" style="display: none;">
+						<div class="smenu_titulos" id="smenus_14" onclick="mostra_submenus(14)" style="color: #F1C917;">Diretoria Executiva</div>
+						<div id="ssubmenu_14" style="display: none;">
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Administrações Anteriores</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Comissões</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Diretoria Executiva</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Past Grandes Mestres Estaduais</div>
+						</div>
+						<div class="smenu_titulos" id="smenus_15" onclick="mostra_submenus(15)" style="color: #F1C917;">Gabinete Estadual</div>
+						<div id="ssubmenu_15" style="display: none;">
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Administrações Anteriores do Gabinete Nacional</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Líderes Nacionais</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Past Mestres Conselheiros Estaduais</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Projetos do Gabinete Estaduais</div>
+							<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Secretarias do Gabinete Estaduais</div>
+						</div>
+					</div>
+					<div class="smenu_titulos" id="smenus_16" onclick="mostra_submenus(16)">Alumni Sergipe</div>
+					<div id="ssubmenu_16" style="display: none;">
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Comissões</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Conselho Fiscal</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Dia Nacional do Sênior DeMolay</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Diretoria Executiva</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Ex-Presidentes e Vices</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - O Início</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Projetos</div>
+						<div class="smenu_link" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">ADAE - Quem Somos?</div>
+					</div>
+				</div>
+			</div>
+			<div id="menu_21">
+				<div class="smenu_titulo" id="menus_21" onclick="mostra_submenu(21)">Notícias</div>
+				<div id="submenu_21" style="display: none;">
+					<div class="smenu_titulos" id="smenus_17" onclick="location.href=&#39;../noticias/EmConstrucao.html&#39;">Notícias</div>
+					<div id="ssubmenu_17" style="display: none;"></div>
+				</div>
+			</div>
+			<div id="menu_22">
+				<div class="smenu_titulo" id="menus_22" onclick="mostra_submenu(22)">Campanhas</div>
+				<div id="submenu_22" style="display: none;">
+					<div class="smenu_titulos" id="smenus_18" onclick="location.href=&#39;../institucional/financiademolayse.html&#39;">Financia Demolay SE</div>
+					<div id="ssubmenu_18" style="display: none;"></div>
+				</div>
+			</div>
+		</div>
+		<div id="div_show" class="area_default">
+			<br />
+			<br />
+			<!--<div id="div_shows">
+			<div class="events_areab" onclick="window.open('https://eventos.demolaybrasil.org.br/');" style="cursor: pointer;">
+				<div class="events_photo" style="background: url('../media/events/caa776ba8b59707da4361f6cc21e940f.jpg') no-repeat center; background-size: cover;"></div>
+				<div class="events_areas">
+					<div class="events_titles">Congresso Nacional da Ordem DeMolay 2024</div>
+					<div class="events_date">26, 27 e 28 de Julho de 2024</div>
+					<div class="events_place"><img src="../img/icon_place.png" class="events_icon" />Porto Velho, RO</div>
+				</div>
+			</div>
+		</div>-->
+		</div>
+
+		<div class="quero" onclick="location.href=&#39;https://www.ocaminhocomecaaqui.com.br&#39;">
+			Faça parte da<br />
+			Ordem DeMolay
+		</div>
+
+		<div class="area_footer">
+			<div class="footer_left"><img src="../Images/GCE.png" /></div>
+			<div class="footer_right">
+				<div class="right_a">
+					<div class="a_title">Links rápidos</div>
+					<div class="a_left">
+						<div class="left_menu" onclick="show_a()">Sobre Nós</div>
+						<div class="left_menu" onclick="location.href=&#39;https://www.demolaybrasil.org.br/institucional/Onde-Estamos&#39;">Cidades</div>
+						<div class="left_menu" onclick="show_c()">Lideranças</div>
+					</div>
+					<div class="a_right">
+						<div class="left_menu" onclick="location.href=&#39;../institucional/EmConstrucao.html&#39;">Atos e Decretos</div>
+						<div class="left_menu" onclick="window.open(&#39;https://www.demolayshop.com&#39;)">DeMolay Shop</div>
+						<div class="left_menu" onclick="window.open(&#39;https://sis.demolaysergipe.org.br&#39;)">SISSE</div>
+					</div>
+				</div>
+
+				<div class="right_b">
+					<div class="b_title">Contatos</div>
+					<div class="b_text">
+						E-mail: <a href="mailt0:contato@demolaysergipe.org.br" style="color: #FFF;">contato@demolaysergipe.org.br</a><br />
+						<br />
+						<div onclick="location.href=&#39;tel:7932176375&#39;">Telefone: <span style="cursor: pointer; font-weight: bold;">(79) 3217-6375</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="footer_center">
+				<img src="../DeMolaySergipe_files/bt_facebook.png" style="height: 30px; margin: 7px; vertical-align: middle;" />
+				<img src="../DeMolaySergipe_files/bt_instagram.png" style="height: 30px; margin: 7px; vertical-align: middle;" />
+				<img src="../DeMolaySergipe_files/bt_twitter.png" style="height: 30px; margin: 7px; vertical-align: middle;" />
+				<img src="../DeMolaySergipe_files/bt_whatsapp.png" style="height: 30px; margin: 7px; vertical-align: middle;" />
+				<img src="../DeMolaySergipe_files/bt_youtube.png" style="height: 30px; margin: 7px; vertical-align: middle;" />
+				<div class="center_text">
+					© 2024 GCE-SE - CNPJ: 12.551.393/0001-00 | Grande Conselho Estadual Demolay Sergipe <br />
+					R. Oscár Valois Galvão, 359 - Grageru, Aracaju - SE, 49027-220
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

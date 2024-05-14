@@ -48,11 +48,11 @@ namespace BusinessLogic
             {
                 subMenu.IdSubMenu = (int)row["idSubMenu"];
                 subMenu.DsSubMenu = (string)row["DsSubMenu"];
-                subMenu.Flhabilitado = (bool)row["flProfissional"];
-                subMenu.FlProfissional = (bool)row["FlHabilitado"];
+                subMenu.Flhabilitado = Convert.ToBoolean(row["flProfissional"]);
+                subMenu.FlProfissional = Convert.ToBoolean(row["FlHabilitado"]);
                 subMenu.NrOrdem = (int)row["NrOrdem"];
                 subMenu.IdMenu = new MenuBL().ObterMenu((int)row["IdMenu"]);
-                subMenu.Fladministrador = (bool)row["Fladministrador"];
+                subMenu.Fladministrador = Convert.ToBoolean(row["Fladministrador"]);
                 subMenu.DsLink = (string)row["DsLink"];
             }
             return subMenu;
