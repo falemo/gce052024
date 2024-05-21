@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,6 +25,70 @@ namespace Headin_APP0012023
             GridViewPaises.DataBind();
         }
 
+        private void ExportGridToExcel()
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.xls");
+            Response.Charset = "";
+            Response.ContentType = "application/vnd.ms-excel";
+
+            using (StringWriter sw = new StringWriter())
+            {
+                HtmlTextWriter hw = new HtmlTextWriter(sw);
+
+                // Para evitar erros de renderização de controles
+                GridViewPaises.AllowPaging = false;
+                
+                string spreadsheetId = "17SQPXA_bOuvlkZENGeCntBytAcBXobJFtivto8cbq3o";
+                DataTable dataTable = new CampanhaGoogleBL().ConsultarCampanhas(spreadsheetId, "Avanco_Geracao!A1:G81000");
+                GridViewPaises.DataSource = dataTable;
+                GridViewPaises.DataBind();
+
+                GridViewPaises.HeaderRow.Style.Add("background-color", "#FFFFFF");
+                foreach (TableCell cell in GridViewPaises.HeaderRow.Cells)
+                {
+                    cell.Style["background-color"] = "#A55129";
+                }
+                foreach (GridViewRow row in GridViewPaises.Rows)
+                {
+                    row.BackColor = System.Drawing.Color.White;
+                    foreach (TableCell cell in row.Cells)
+                    {
+                        if (row.RowIndex % 2 == 0)
+                        {
+                            cell.Style["background-color"] = "#FFF7E7";
+                        }
+                        else
+                        {
+                            cell.Style["background-color"] = "#F7F6F3";
+                        }
+                        cell.CssClass = "textmode";
+                    }
+                }
+
+                GridViewPaises.RenderControl(hw);
+
+                string style = @"<style> .textmode { } </style>";
+                Response.Write(style);
+                Response.Output.Write(sw.ToString());
+                Response.Flush();
+                Response.End();
+            }
+        }
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Export")
+            {
+                ExportGridToExcel();
+            }
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            // Necessário para exportação do GridView
+        }
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             try

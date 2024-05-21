@@ -107,7 +107,7 @@
             </asp:Chart>
         </div>
         <br />
-
+    	    <p><strong>Os dados da campanha não são atualizados online é realizado 1 vez (uma vez) ao día.</strong></p>
         <h2>Faça já seu PIX</h2>
         <img src="../Images/CampanhaDemolaySergipe.jpg" alt="Campanha DemolaySergipe" style="height: 600px; margin: 7px; vertical-align: middle;" />
 

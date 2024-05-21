@@ -23,6 +23,7 @@
     <link href="../css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RNRQK0QQB6"></script>
@@ -69,45 +70,22 @@
         <!-- Área para o gráfico de progresso -->
         <!-- Estrutura de consulta -->
         <div class="mt-3">
+    	    <p><strong>Os dados da campanha não são atualizados online é realizado 1 vez (uma vez) ao día.</strong></p>
             <h5>Informe seu E-mail ou Pix:</h5>
             <asp:TextBox ID="txtFiltro" runat="server" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtFiltro_TextChanged"></asp:TextBox>
+            <asp:Button ID="btnExport" runat="server" Text="Export to Excel" OnClientClick="exportToExcel();" />
         </div>
         <br />
         <br />
 
         <!-- Tabela para exibir dados -->
-        <asp:GridView ID="GridViewPaises" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered" DataKeyNames="Email">
+        <asp:GridView ID="GridViewPaises" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered" OnRowCommand="GridView1_RowCommand">
             <Columns>
-        <asp:TemplateField>
-            <HeaderTemplate>Email</HeaderTemplate>
-            <ItemTemplate>
-                <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:TemplateField>
-            <HeaderTemplate>Data</HeaderTemplate>
-            <ItemTemplate>
-                <asp:Label ID="lblData" runat="server" Text='<%# Eval("Data") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:TemplateField>
-            <HeaderTemplate>Valor</HeaderTemplate>
-            <ItemTemplate>
-                <asp:Label ID="lblValor" runat="server" Text='<%# Eval("Valor") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:TemplateField>
-            <HeaderTemplate>Situação</HeaderTemplate>
-            <ItemTemplate>
-                <asp:Label ID="lblValidado" runat="server" Text='<%# Eval("Validado") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:TemplateField>
-            <HeaderTemplate>Número da Sorte</HeaderTemplate>
-            <ItemTemplate>
-                <asp:Label ID="lblNumeroSorte" runat="server" Text='<%# Eval("NumeroSorte") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
+               <asp:BoundField DataField="Email" HeaderText="Email" />
+               <asp:BoundField DataField="Data" HeaderText="Data" />
+               <asp:BoundField DataField="Valor" HeaderText="Valor" />
+               <asp:BoundField DataField="Validado" HeaderText="Situação" />
+               <asp:BoundField DataField="NumeroSorte" HeaderText="Nr Sorte" />
             </Columns>
         </asp:GridView>
     </div>
@@ -125,6 +103,33 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="../js/datatables-simple-demo.js"></script>
     <script src="../Scripts/scripts.js"> </script>
+
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.3/xlsx.full.min.js"></script>
+    <script type="text/javascript">
+        function exportToExcel() {
+            // Obtém o GridView
+            var gridView = document.getElementById("<%= GridViewPaises.ClientID %>");
+
+            // Cria um workbook vazio
+            var wb = XLSX.utils.book_new();
+
+            // Converte a tabela do GridView em uma planilha Excel
+            var ws = XLSX.utils.table_to_sheet(gridView);
+
+            // Adiciona a planilha ao workbook
+            XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+            // Salva o arquivo Excel
+            XLSX.writeFile(wb, "export.xlsx");
+        }
+    </script>
 
 </body>
 </html>
