@@ -51,7 +51,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
 
         }
@@ -129,7 +129,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
 
@@ -147,7 +147,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }*/
 
@@ -182,7 +182,7 @@ namespace Headin_APP0012023
             {
                 // Trate exceções aqui, se necessário
                 // Exiba uma mensagem de erro, registre em log, etc.
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
 
@@ -210,7 +210,7 @@ namespace Headin_APP0012023
             {
                 // Trate exceções aqui, se necessário
                 // Exiba uma mensagem de erro, registre em log, etc.
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
             // Implemente a lógica para excluir um registro existente
             // Use os valores do GridView

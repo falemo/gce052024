@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using ToolAccessLayer;using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System.Data.SqlTypes;
+using DataAccessLayer;
 
-namespace DataAccessLayer
+namespace APIDemolaySergipe
 {
     public class SubMenuDAL
     {
-        private SQLServerConexion SqlConnection = new SQLServerConexion("headin2023fabrinioandessantanalemos");
+        private SQLServerConexion SqlConnection;
 
-        public SubMenuDAL()
+        public SubMenuDAL(string stringcnx)
         {
+            SqlConnection = new SQLServerConexion(stringcnx);
             SqlConnection.Open();
         }
 

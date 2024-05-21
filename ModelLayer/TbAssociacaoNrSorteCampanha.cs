@@ -14,6 +14,7 @@ namespace ModelLayer
         public DateTime DtCadastro { get; set; }
         public decimal VlrConvervacao { get; set; }
         public decimal VlrSaldo { get; set; }
+        public bool Flusosaldo { get; set; }
 
     }
 

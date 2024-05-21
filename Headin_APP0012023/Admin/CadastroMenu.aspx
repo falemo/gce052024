@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Demolay Sergipe" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastroMenu.aspx.cs" Inherits="Headin_APP0012023.CadastroMenu" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-5">
-        <h2>Manutenção de Países</h2>
+        <h2>Manutenção de Menu</h2>
 
         <!-- Formulário para inserção e edição -->
         <div class="card mt-3">

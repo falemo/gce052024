@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using DataAccessLayer;
 using MySql.Data.MySqlClient;
-using ToolAccessLayer;
 
-namespace DataAccessLayer
+
+
+namespace APIDemolaySergipe
 {
-    public class CampanhaDAL
+    public class campanhaDAL
     {
-        
-        private SQLServerConexion SqlConnection = new SQLServerConexion("headin2023fabrinioandessantanalemos");
 
-        public CampanhaDAL()
+        private SQLServerConexion SqlConnection; // = new SQLServerConexion("headin2023fabrinioandessantanalemos");
+
+        public campanhaDAL(string stringcnx)
         {
+            SqlConnection = new SQLServerConexion(stringcnx);
             SqlConnection.Open();
-        }
+        }   
 
 
         public int InserirCampanha(decimal vlrCampanha, DateTime dtInicio, DateTime dtFim, bool flAtiva, string dsPix, string dsPixInfo, int idPessoa, string file_path, decimal vlrMinimoSorte)
@@ -63,7 +66,7 @@ namespace DataAccessLayer
         public DataTable ConsultarCampanhas()
         {
             SqlConnection.LimparParametros();
-            return SqlConnection.ExecutaConsulta("SELECT * FROM TbCampanha order by dtInicio desc");
+            return SqlConnection.ExecutaConsulta("SELECT C.*, P.nome FROM TbCampanha C Join TbPessoas P on C.idPessoa = P.id order by dtInicio desc");
         }
         public DataTable ConsultarCampanha(int id)
         {

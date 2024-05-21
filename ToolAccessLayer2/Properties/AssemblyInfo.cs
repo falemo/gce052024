@@ -1,16 +1,21 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security;
+
+
+// Adicione o atributo AllowPartiallyTrustedCallers aqui
+//[assembly: AllowPartiallyTrustedCallers]
 
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
-[assembly: AssemblyTitle("ToolAccessLayer2")]
+[assembly: AssemblyTitle("ToolAccessLayer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Cencosud S.A")]
-[assembly: AssemblyProduct("ToolAccessLayer2")]
-[assembly: AssemblyCopyright("Copyright © Cencosud S.A 2023")]
+[assembly: AssemblyCompany("GCE-SE")]
+[assembly: AssemblyProduct("ToolAccessLayer")]
+[assembly: AssemblyCopyright("Copyright © GCE S.A 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,3 +39,6 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyKeyFile("gcese.snk")]
+// Especificar o arquivo de chave forte
+//[assembly: AssemblyKeyFile("gcese.snk")]

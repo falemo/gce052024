@@ -1,4 +1,5 @@
-﻿using DataAccessLayer;
+﻿using APIDemolaySergipe;
+using DataAccessLayer;
 using ModelLayer;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace BusinessLayer
 {
     public class PaisBL
     {
-        private readonly PaisDAL _paisDAL = new PaisDAL();
+        private readonly PaisDAL _paisDAL = new PaisDAL("");
 
         public PaisBL()
         {

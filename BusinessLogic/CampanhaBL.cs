@@ -1,4 +1,5 @@
-﻿using BusinessLogic;
+﻿using APIDemolaySergipe;
+using BusinessLogic;
 using DataAccessLayer;
 using ModelLayer;
 using System;
@@ -12,7 +13,7 @@ namespace BusinessLayer
 {
     public class CampanhaBL
     {
-        private readonly CampanhaDAL _campanhaDAL = new CampanhaDAL();
+        private readonly campanhaDAL _campanhaDAL = new campanhaDAL("");
 
         public CampanhaBL()
         {

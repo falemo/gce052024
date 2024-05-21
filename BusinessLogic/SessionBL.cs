@@ -1,4 +1,5 @@
-﻿using DataAccessLayer;
+﻿using APIDemolaySergipe;
+using DataAccessLayer;
 using ModelLayer;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace BusinessLayer
 {
     public class SessionBL
     {
-        private readonly SessionDAL _SessionDAL = new SessionDAL();
+        private readonly SessionDAL _SessionDAL = new SessionDAL("");
 
         public SessionBL()
         {

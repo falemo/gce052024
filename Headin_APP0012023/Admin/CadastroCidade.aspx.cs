@@ -23,7 +23,7 @@ namespace Headin_APP0012023.Admin
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
 
@@ -42,7 +42,7 @@ namespace Headin_APP0012023.Admin
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
         private void carregarComboPais()
@@ -60,7 +60,7 @@ namespace Headin_APP0012023.Admin
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
 
@@ -96,7 +96,7 @@ namespace Headin_APP0012023.Admin
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
 
         }
@@ -141,7 +141,7 @@ namespace Headin_APP0012023.Admin
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
 
 
@@ -178,7 +178,7 @@ namespace Headin_APP0012023.Admin
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
 
@@ -211,7 +211,7 @@ namespace Headin_APP0012023.Admin
             {
                 // Trate exceções aqui, se necessário
                 // Exiba uma mensagem de erro, registre em log, etc.
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
 
@@ -239,7 +239,7 @@ namespace Headin_APP0012023.Admin
             {
                 // Trate exceções aqui, se necessário
                 // Exiba uma mensagem de erro, registre em log, etc.
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
             // Implemente a lógica para excluir um registro existente
             // Use os valores do GridView
@@ -292,7 +292,7 @@ namespace Headin_APP0012023.Admin
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
         private void CarregarListaEstado()
@@ -335,7 +335,7 @@ namespace Headin_APP0012023.Admin
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
     }

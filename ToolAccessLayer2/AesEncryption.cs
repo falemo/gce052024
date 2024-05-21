@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Security.Cryptography;
+using System.Security;
 
-namespace ToolAccessLayer.Classes
+namespace ToolAccessLayer
 {
+
     public class AesEncryption
     {
         /*

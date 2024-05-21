@@ -16,7 +16,6 @@ namespace Headin_APP0012023
         {
             try
             {
-
                 // Find the lblUserName control in the Site.Master page
                 Label lblUserName = (Label)Master.FindControl("lblUserName");
 

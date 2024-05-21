@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Data;
 using MySql.Data.MySqlClient;
-using ToolAccessLayer;
+using DataAccessLayer;
 
-namespace DataAccessLayer
+namespace APIDemolaySergipe
 {
     public class TbRegistroCampanhaDAL
     {
-        private SQLServerConexion SqlConnection = new SQLServerConexion("headin2023fabrinioandessantanalemos");
+        private SQLServerConexion SqlConnection;
 
-        public TbRegistroCampanhaDAL()
+        public TbRegistroCampanhaDAL(string stringcnx)
         {
+            SqlConnection = new SQLServerConexion(stringcnx);
             SqlConnection.Open();
         }
 

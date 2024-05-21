@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Demolay Sergipe" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastroSubMenu.aspx.cs" Inherits="Headin_APP0012023.CadastroSubMenu" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-5">
-        <h2>Manutenção de Países</h2>
+        <h2>Manutenção de SubMenu</h2>
 
         <!-- Formulário para inserção e edição -->
         <div class="card mt-3">

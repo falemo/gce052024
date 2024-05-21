@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Security.Cryptography;
 using System.Configuration;
 using System.Xml;
+using System.IO;
 
 namespace ToolAccessLayer
 {
@@ -87,5 +88,24 @@ namespace ToolAccessLayer
 
             return true;
         }
+
+        #region Método para registrar erro no log
+        public static void LogError(string ex, string stack)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(@"E:\home\demolayse2\demolaysergipe.org.br\web\Logs\Logs.txt", true))
+                {
+                    writer.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " - Error: " + ex);
+                    writer.WriteLine("StackTrace: " + stack);
+                    writer.WriteLine(); // Adiciona uma linha em branco para separar os registros de erro
+                }
+            }
+            catch (Exception)
+            {
+                // Caso ocorra algum erro ao tentar gravar no arquivo de log, não faz nada
+            }
+        }
+        #endregion
     }
 }

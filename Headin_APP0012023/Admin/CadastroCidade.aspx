@@ -11,6 +11,7 @@
                     <label for="txtNomeCidade">Nome da Cidade:</label>
                     <asp:TextBox ID="txtNomeCidade" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
+
                 <div class="form-group">
                     <label for="ddlPais">Pais:</label>
                     <asp:DropDownList ID="ddlPais" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddlPais_SelectedIndexChanged">

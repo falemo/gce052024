@@ -7,8 +7,8 @@
     <ProjectGuid>{92A8E5B6-B160-49D9-B1AD-4D40BA7262A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ToolAccessLayer2</RootNamespace>
-    <AssemblyName>ToolAccessLayer2</AssemblyName>
+    <RootNamespace>ToolAccessLayer</RootNamespace>
+    <AssemblyName>ToolAccessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -29,6 +29,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>gcese.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -110,12 +116,14 @@
   <ItemGroup>
     <Compile Include="AesEncryption.cs" />
     <Compile Include="Funcoes.cs" />
+    <Compile Include="GeradorNumeroAleatorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionManagers.cs" />
-    <Compile Include="SQLServerConexion.cs" />
+    <Compile Include="SQLServerConexionOLD.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="gcese.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -123,11 +131,6 @@
       <Project>{b988686e-15fe-4a8f-a476-df813543225b}</Project>
       <Name>ModelLayer</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\Headin_APP0012023\institucional\CampanhaDemolaySE.aspx">
-      <Link>CampanhaDemolaySE.aspx</Link>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

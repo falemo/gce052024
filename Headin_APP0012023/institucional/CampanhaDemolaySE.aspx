@@ -68,11 +68,18 @@
 								Participe da nossa campanha para financiar as atividades da Ordem Demolay no estado de Sergipe. Sem cobrança de taxas mensais, todas as iniciativas são realizadas com esforço e dedicação, muitas vezes com recursos limitados. Com transparência total, 
 								buscamos financiamento para os próximos dois anos, garantindo o funcionamento das atividades. Ajude-nos a alcançar esse objetivo e acompanhe cada passo do processo.<br />
 								<br />
-								<i><b>Quem contribuir, pode ser contemplado!</b> além de ajudar, também pode participar de 4 Sorteios para ganhar também!</i>
+								<i><b>Quem contribuir, pode ser contemplado!</b> além 
+                                
+&nbsp;de ajudar, também pode participar de 4 Sorteios para ganhar também!</i>
+								<i>a cada
+                                <asp:Label ID="lblVlrCupom" runat="server" Text="Label"></asp:Label>
+&nbsp;acumulado e registrado será gerado um cupom para participação. </i>
 								<br />
 								<br />
 								<i><b>Mais Detalhes</b>: acessar abaixo a página completa que explica a campanha e também o sorteio de prémios para quem participar desta campanhã</i>
                                 <br />
+								<br />
+                                Após doação do valor, carregue seu comprovante e valor doado em nosso formulário <a href="https://forms.gle/q8582WAV37SCP8DVA" target="_blank">aqui</a>.  
 								<br />
 								<br />
 							</div>

@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
 using MySql.Data.MySqlClient;
-using ToolAccessLayer;
+using DataAccessLayer;
 
-
-namespace DataAccessLayer
+namespace APIDemolaySergipe
 {
     public class CidadeDAL
     {
-        private SQLServerConexion SqlConnection = new SQLServerConexion("headin2023fabrinioandessantanalemos");
+        private SQLServerConexion SqlConnection;
 
-        public CidadeDAL()
+        public CidadeDAL(string stringcnx)
         {
+            SqlConnection = new SQLServerConexion(stringcnx);
             SqlConnection.Open();
         }
 

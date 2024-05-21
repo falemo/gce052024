@@ -1,4 +1,5 @@
-﻿using BusinessLayer;
+﻿using APIDemolaySergipe;
+using BusinessLayer;
 using DataAccessLayer;
 using ModelLayer;
 using System;
@@ -15,7 +16,7 @@ namespace BusinessLogic
 
     public class MenuBL
     {
-        private readonly MenuDAL _menuDAL = new MenuDAL();
+        private readonly MenuDAL _menuDAL = new MenuDAL("");
         public MenuBL()
         {
         }
@@ -341,7 +342,7 @@ namespace BusinessLogic
                     TbMenu mn = ObterMenucomSubMenu((int)tabela.Rows[i]["id"]);
 
                     // Check if the menu item is enabled and matches the user role
-                    if (mn.FlHabilitado && ((FlProfessional && mn.FlProfessional) || (flAdministrador && mn.Fladministrador)))
+                    if (mn.FlHabilitado && flAdministrador)
                     {
                         // Check if the group has changed
                         if (grupo != mn.grupo)
@@ -362,7 +363,7 @@ namespace BusinessLogic
                         foreach (var submenu in mn.TbSubMenu)
                         {
                             // Check if submenu item is enabled and matches the user role
-                            if (submenu.Flhabilitado && ((FlProfessional && submenu.FlProfissional) || (flAdministrador && submenu.Fladministrador)))
+                            if (submenu.Flhabilitado && flAdministrador && submenu.Fladministrador)
                             {
                                 sb.AppendLine("<a class=\"nav-link\" href=\"" + submenu.DsLink + "\">" + submenu.DsSubMenu + "</a>");
                             }
@@ -370,6 +371,40 @@ namespace BusinessLogic
 
                         sb.AppendLine("</nav>");
                         sb.AppendLine("</div>");
+                    }
+                    else
+                    {
+                        // Handle non-administrator, non-professional menus
+                        if (mn.FlHabilitado && !mn.Fladministrador)
+                        {
+                            // Check if the group has changed
+                            if (grupo != mn.grupo)
+                            {
+                                sb.AppendLine("<div class=\"sb-sidenav-menu-heading\">" + mn.grupo + "</div>");
+                                grupo = mn.grupo;
+                            }
+
+                            sb.AppendLine("<a class=\"nav-link collapsed\" href=\"#collapse" + mn.DsMenu + "\" data-bs-toggle=\"collapse\" aria-expanded=\"false\">");
+                            sb.AppendLine("<div class=\"sb-nav-link-icon\"><i class=\"fas fa-columns\"></i></div>");
+                            sb.AppendLine(mn.DsMenu);
+                            sb.AppendLine("<div class=\"sb-sidenav-collapse-arrow\"><i class=\"fas fa-angle-down\"></i></div>");
+                            sb.AppendLine("</a>");
+                            sb.AppendLine("<div class=\"collapse\" id=\"collapse" + mn.DsMenu + "\">");
+                            sb.AppendLine("<nav class=\"sb-sidenav-menu-nested nav\">");
+
+                            // Iterate through submenu items
+                            foreach (var submenu in mn.TbSubMenu)
+                            {
+                                // Check if submenu item is enabled
+                                if (submenu.Flhabilitado && !submenu.Fladministrador)
+                                {
+                                    sb.AppendLine("<a class=\"nav-link\" href=\"" + submenu.DsLink + "\">" + submenu.DsSubMenu + "</a>");
+                                }
+                            }
+
+                            sb.AppendLine("</nav>");
+                            sb.AppendLine("</div>");
+                        }
                     }
                 }
 

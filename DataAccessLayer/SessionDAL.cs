@@ -5,16 +5,18 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToolAccessLayer;using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
+using DataAccessLayer;
 
-namespace DataAccessLayer
+namespace APIDemolaySergipe
 {
     public class SessionDAL
     {
-        private SQLServerConexion SqlConnection = new SQLServerConexion("headin2023fabrinioandessantanalemos");
+        private SQLServerConexion SqlConnection;
 
-        public SessionDAL()
+        public SessionDAL(string stringcnx)
         {
+            SqlConnection = new SQLServerConexion(stringcnx);
             SqlConnection.Open();
         }
 

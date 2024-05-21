@@ -1,4 +1,5 @@
-﻿using BusinessLayer;
+﻿using APIDemolaySergipe;
+using BusinessLayer;
 using DataAccessLayer;
 using ModelLayer;
 using System;
@@ -12,7 +13,7 @@ namespace BusinessLogic
 {
     public class PessoaBL
     {
-        private readonly PessoaDAL _pessoaDAL = new PessoaDAL();
+        private readonly PessoaDAL _pessoaDAL = new PessoaDAL("");
         public PessoaBL()
         {
         }

@@ -25,7 +25,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
         protected void GerarComboTipoPessoa()
@@ -41,7 +41,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
         protected void GerarComboEstado(int idPais)
@@ -57,7 +57,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
 
         }
@@ -75,7 +75,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
 
         }
@@ -104,7 +104,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
 
@@ -137,7 +137,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
 }
 
@@ -163,7 +163,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
 
@@ -189,7 +189,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                lblMessage.Text = ex.Message;
+                lblMessage.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
     }

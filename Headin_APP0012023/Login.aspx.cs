@@ -11,6 +11,7 @@ using System.Web.SessionState;
 using static System.Collections.Specialized.BitVector32;
 using BusinessLayer;
 using System.Web.Security;
+using ToolAccessLayer;
 
 namespace Headin_APP0012023
 {
@@ -73,7 +74,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                TextAlarme.Text = ex.Message;
+                TextAlarme.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
 
@@ -141,7 +142,7 @@ namespace Headin_APP0012023
             }
             catch (Exception ex)
             {
-                TextAlarme.Text = ex.Message;
+                                TextAlarme.Text = ex.Message + "- Rastreio: " + ex.Source + " " + ex.StackTrace;
             }
         }
     }

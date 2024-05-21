@@ -58,6 +58,21 @@
     <Reference Include="ExcelDataReader.DataSet, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.DataSet.3.7.0-develop00385\lib\net462\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis, Version=1.68.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.68.0\lib\net462\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.68.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.68.0\lib\net462\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.68.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.68.0\lib\net462\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Oauth2.v2, Version=1.68.0.1869, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Oauth2.v2.1.68.0.1869\lib\net462\Google.Apis.Oauth2.v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Sheets.v4, Version=1.68.0.3407, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Sheets.v4.1.68.0.3407\lib\net462\Google.Apis.Sheets.v4.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -74,12 +89,16 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.CodeDom, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.7.0.0\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -153,7 +172,10 @@
     <Content Include="Admin\CadastroEstado.aspx" />
     <Content Include="Admin\CadastroPais.aspx" />
     <Content Include="css\Chart.css" />
+    <Content Include="formsCampanha\NrdaSorte.aspx" />
+    <Content Include="formsCampanha\CadastroCampanha.aspx" />
     <Content Include="Images\CampanhaDemolaySergipe.jpg" />
+    <Content Include="institucional\CampanhaContribuicao.aspx" />
     <Content Include="institucional\ExcelViewer.aspx" />
     <Content Include="institucional\CampanhaDemolaySE.aspx" />
     <Content Include="Contact.aspx" />
@@ -257,6 +279,7 @@
     <Content Include="img\bt_shop.png" />
     <Content Include="img\bt_sisdm.png" />
     <Content Include="institucional\Eventos.html" />
+    <Content Include="institucional\ConsultaCampanha.html" />
     <Content Include="institucional\financiademolayse.html" />
     <Content Include="institucional\EmConstrucao.html" />
     <Content Include="js\datatables-simple-demo.js" />
@@ -313,6 +336,7 @@
     <Content Include="DeMolaySergipe_files\ga.js.transferir" />
     <Content Include="DeMolaySergipe_files\remote.js.transferir" />
     <Content Include="DeMolaySergipe_files\www-embed-player.js.transferir" />
+    <Content Include="gcese.snk" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -394,6 +418,27 @@
     </Compile>
     <Compile Include="Admin\CadastroPais.aspx.designer.cs">
       <DependentUpon>CadastroPais.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formsCampanha\NrdaSorte.aspx.cs">
+      <DependentUpon>NrdaSorte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formsCampanha\NrdaSorte.aspx.designer.cs">
+      <DependentUpon>NrdaSorte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formsCampanha\CadastroCampanha.aspx.cs">
+      <DependentUpon>CadastroCampanha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formsCampanha\CadastroCampanha.aspx.designer.cs">
+      <DependentUpon>CadastroCampanha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="institucional\CampanhaContribuicao.aspx.cs">
+      <DependentUpon>CampanhaContribuicao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="institucional\CampanhaContribuicao.aspx.designer.cs">
+      <DependentUpon>CampanhaContribuicao.aspx</DependentUpon>
     </Compile>
     <Compile Include="institucional\ExcelViewer.aspx.cs">
       <DependentUpon>ExcelViewer.aspx</DependentUpon>
@@ -480,10 +525,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="FormsAdmin\" />
-    <Folder Include="FormsCliente\" />
-    <Folder Include="FormsProfissional\" />
+    <Folder Include="Logs\" />
     <Folder Include="Models\" />
+    <Folder Include="TempImageFiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -519,6 +563,12 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>gcese.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

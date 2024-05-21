@@ -18,14 +18,14 @@ namespace BusinessLayer
         {
         }
 
-        public int InserirAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai, DateTime dtCadastro, decimal vlrConvervacao, decimal vlrSaldo)
+        public int InserirAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai, DateTime dtCadastro, decimal vlrConvervacao, decimal vlrSaldo, bool Flusosaldo)
         {
-            return _associacaoNrSorteCampanhaDAL.InserirAssociacaoNrSorteCampanha(idNrSorte, idSortePai, dtCadastro, vlrConvervacao, vlrSaldo);
+            return _associacaoNrSorteCampanhaDAL.InserirAssociacaoNrSorteCampanha(idNrSorte, idSortePai, dtCadastro, vlrConvervacao, vlrSaldo,Flusosaldo);
         }
 
-        public int AtualizarAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai, DateTime dtCadastro, decimal vlrConvervacao, decimal vlrSaldo)
+        public int AtualizarAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai, DateTime dtCadastro, decimal vlrConvervacao, decimal vlrSaldo, bool Flusosaldo)
         {
-            return _associacaoNrSorteCampanhaDAL.AtualizarAssociacaoNrSorteCampanha(idNrSorte, idSortePai, dtCadastro, vlrConvervacao, vlrSaldo);
+            return _associacaoNrSorteCampanhaDAL.AtualizarAssociacaoNrSorteCampanha(idNrSorte, idSortePai, dtCadastro, vlrConvervacao, vlrSaldo, Flusosaldo);
         }
 
         public int ExcluirAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai)
@@ -51,6 +51,7 @@ namespace BusinessLayer
                 associacaoNrSorteCampanha.DtCadastro = (DateTime)row["dtCadastro"];
                 associacaoNrSorteCampanha.VlrConvervacao = (decimal)row["vlrConvervacao"];
                 associacaoNrSorteCampanha.VlrSaldo = (decimal)row["vlrSaldo"];
+                associacaoNrSorteCampanha.Flusosaldo = (bool)row["Flusosaldo"];
             }
             return associacaoNrSorteCampanha;
         }
@@ -69,7 +70,7 @@ namespace BusinessLayer
                 associacao.DtCadastro = (DateTime)row["dtCadastro"];
                 associacao.VlrConvervacao = (decimal)row["vlrConvervacao"];
                 associacao.VlrSaldo = (decimal)row["vlrSaldo"];
-
+                associacao.Flusosaldo = (bool)row["Flusosaldo"];
                 associacoes.Add(associacao);
             }
 

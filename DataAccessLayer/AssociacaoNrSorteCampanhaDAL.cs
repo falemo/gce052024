@@ -14,7 +14,7 @@ namespace DataAccessLayer
             SqlConnection.Open();
         }
 
-        public int InserirAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai, DateTime dtCadastro, decimal vlrConvervacao, decimal vlrSaldo )
+        public int InserirAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai, DateTime dtCadastro, decimal vlrConvervacao, decimal vlrSaldo, bool Flusosaldo)
         {
             SqlConnection.LimparParametros();
             SqlConnection.AdicionarParametro("@idNrSorte", MySqlDbType.Int64, idNrSorte);
@@ -22,12 +22,13 @@ namespace DataAccessLayer
             SqlConnection.AdicionarParametro("@dtCadastro", MySqlDbType.DateTime, dtCadastro);
             SqlConnection.AdicionarParametro("@vlrConvervacao", MySqlDbType.Decimal, vlrConvervacao);
             SqlConnection.AdicionarParametro("@vlrSaldo", MySqlDbType.Decimal, vlrSaldo);
+            SqlConnection.AdicionarParametro("@Flusosaldo", MySqlDbType.Bit, Flusosaldo); 
 
-            return SqlConnection.ExecutaAtualizacao("INSERT INTO TbAssociacaoNrSorteCampanha (idNrSorte ,idSortePai ,dtCadastro  ,vlrConvervacao ,vlrSaldo ) " +
-                                                     "VALUES (@idNrSorte ,@idSortePai ,@dtCadastro,@vlrConvervacao ,@vlrSaldo )");
+            return SqlConnection.ExecutaAtualizacao("INSERT INTO TbAssociacaoNrSorteCampanha (idNrSorte ,idSortePai ,dtCadastro  ,vlrConvervacao ,vlrSaldo,Flusosaldo ) " +
+                                                     "VALUES (@idNrSorte ,@idSortePai ,@dtCadastro,@vlrConvervacao ,@vlrSaldo,@Flusosaldo )");
         }
 
-        public int AtualizarAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai, DateTime dtCadastro, decimal vlrConvervacao, decimal vlrSaldo)
+        public int AtualizarAssociacaoNrSorteCampanha(int idNrSorte, int idSortePai, DateTime dtCadastro, decimal vlrConvervacao, decimal vlrSaldo, bool Flusosaldo)
         {
             SqlConnection.LimparParametros();
             SqlConnection.AdicionarParametro("@idNrSorte", MySqlDbType.Int64, idNrSorte);
@@ -35,8 +36,9 @@ namespace DataAccessLayer
             SqlConnection.AdicionarParametro("@dtCadastro", MySqlDbType.DateTime, dtCadastro);
             SqlConnection.AdicionarParametro("@vlrConvervacao", MySqlDbType.Decimal, vlrConvervacao);
             SqlConnection.AdicionarParametro("@vlrSaldo", MySqlDbType.Decimal, vlrSaldo);
+            SqlConnection.AdicionarParametro("@Flusosaldo", MySqlDbType.Bit, Flusosaldo);
 
-            return SqlConnection.ExecutaAtualizacao("UPDATE TbAssociacaoNrSorteCampanha SET dtCadastro = @dtCadastro, vlrConvervacao = @vlrConvervacao, vlrSaldo = @vlrSaldo " +
+            return SqlConnection.ExecutaAtualizacao("UPDATE TbAssociacaoNrSorteCampanha SET dtCadastro = @dtCadastro, vlrConvervacao = @vlrConvervacao, vlrSaldo = @vlrSaldo, Flusosaldo = @Flusosaldo " +
                                                      " WHERE idNrSorte = @idNrSorte And idSortePai= @idSortePai");
         } 
 
@@ -62,7 +64,14 @@ namespace DataAccessLayer
             SqlConnection.AdicionarParametro("@idSortePai", MySqlDbType.Int64, idSortePai);
             return SqlConnection.ExecutaConsulta("SELECT * FROM TbAssociacaoNrSorteCampanha WHERE idNrSorte = @idNrSorte And idSortePai= @idSortePai");
         }
-
+        public DataTable UpdateProcessarSaldoDisponible(int idSortePai)
+        {
+            SqlConnection.LimparParametros();
+            SqlConnection.AdicionarParametro("@idSortePai", MySqlDbType.Int64, idSortePai);
+            return SqlConnection.ExecutaConsulta(@"UPDATE TbAssociacaoNrSorteCampanha
+                                                    SET @flusosaldo = 1
+                                                   where idSortePai = @idSortePai");
+        }
         public DataTable ConsultarAssociacaoNrSorteCampanha(int idSortePai)
         {
             SqlConnection.LimparParametros();

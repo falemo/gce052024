@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security;
 
 // As Informações Gerais sobre um assembly são controladas por meio do 
 // conjunto de atributos a seguir. Altere esses valores de atributo para modificar as informações
@@ -33,3 +34,7 @@ using System.Runtime.InteropServices;
 // usando o '*' como mostrado abaixo:
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyKeyFile("gcese.snk")]
+
+// Adicione o atributo AllowPartiallyTrustedCallers aqui
+//[assembly: AllowPartiallyTrustedCallers]

@@ -1,4 +1,5 @@
-﻿using BusinessLogic;
+﻿using APIDemolaySergipe;
+using BusinessLogic;
 using DataAccessLayer;
 using ModelLayer;
 using System;
@@ -12,7 +13,7 @@ namespace BusinessLayer
 {
     public class RegistroCampanhaBL
     {
-        private readonly TbRegistroCampanhaDAL _registroCampanhaDAL = new TbRegistroCampanhaDAL();
+        private readonly TbRegistroCampanhaDAL _registroCampanhaDAL = new TbRegistroCampanhaDAL("");
 
         public RegistroCampanhaBL()
         {

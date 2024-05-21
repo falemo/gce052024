@@ -164,7 +164,11 @@ img {
 
 .bt_doe { background:url(../img/bt_doe.png) top center no-repeat; margin: 0 12px 0 0; width: 43px; }
 .bt_shop { background:url(../img/bt_shop.png) top center no-repeat; margin: 0 12px 0 0; width: 40px; }
-.bt_sisdm { background:url(../img/bt_sisdm.png) top center no-repeat; margin: 0; width: 43px; }
+.bt_sisdm {
+	background: url(../img/bt_sisdm.png) top center no-repeat;
+	margin: 0;
+	width: 43px;
+}
 
 .bt_doe, .bt_shop, .bt_sisdm {
 	-moz-appearance:none;

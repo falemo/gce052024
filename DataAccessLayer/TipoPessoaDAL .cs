@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Data;
 using MySql.Data.MySqlClient;
-using ToolAccessLayer;
 
-namespace DataAccessLayer
+using DataAccessLayer;
+
+namespace APIDemolaySergipe
 {
     public class TbTipoPessoaDAL
     {
-        private SQLServerConexion SqlConnection = new SQLServerConexion("headin2023fabrinioandessantanalemos");
+        private SQLServerConexion SqlConnection;
 
-        public TbTipoPessoaDAL()
+        public TbTipoPessoaDAL(string stringcnx)
         {
+            SqlConnection = new SQLServerConexion(stringcnx);
             SqlConnection.Open();
         }
 

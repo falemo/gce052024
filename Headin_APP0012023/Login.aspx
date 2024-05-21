@@ -47,11 +47,11 @@
                             <div class="card-body">
                                 <form runat="server">
                                     <div class="form-floating mb-3">
-                                        <asp:TextBox ID="inputEmail" runat="server" type="email" CssClass="form-control" Text="fabrinio.lemos@gmail.com" placeholder="name@example.com" autocomplete="username"/>
+                                        <asp:TextBox ID="inputEmail" runat="server" type="email" CssClass="form-control" Text="" placeholder="name@example.com" autocomplete="username"/>
                                         <label for="inputEmail">Email\Login</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <asp:TextBox ID="inputPassword" runat="server" type="password" CssClass="form-control" Text="Lemos1008" placeholder="Password" autocomplete="current-password"/>
+                                        <asp:TextBox ID="inputPassword" runat="server" type="password" CssClass="form-control" Text="" placeholder="Password" autocomplete="current-password"/>
                                         <label for="inputPassword">Senha\Password</label>
                                     </div>
                                     <div class="form-check mb-3">

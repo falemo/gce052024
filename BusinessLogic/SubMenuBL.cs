@@ -1,4 +1,5 @@
-﻿using BusinessLayer;
+﻿using APIDemolaySergipe;
+using BusinessLayer;
 using DataAccessLayer;
 using ModelLayer;
 using System;
@@ -12,7 +13,7 @@ namespace BusinessLogic
 {
     public class SubMenuBL
     {
-        private readonly SubMenuDAL _subMenuDAL = new SubMenuDAL();
+        private readonly SubMenuDAL _subMenuDAL = new SubMenuDAL("");
         public SubMenuBL()
         {
         }

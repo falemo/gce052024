@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using ToolAccessLayer;using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
+using DataAccessLayer;
 
-namespace DataAccessLayer
+namespace APIDemolaySergipe
 {
     public class EstadoDAL
     {
-        private SQLServerConexion SqlConnection = new SQLServerConexion("headin2023fabrinioandessantanalemos");
+        private SQLServerConexion SqlConnection;
 
-        public EstadoDAL()
+        public EstadoDAL(string stringcnx)
         {
+            SqlConnection = new SQLServerConexion(stringcnx);
             SqlConnection.Open();
         }
 

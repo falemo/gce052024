@@ -1,4 +1,5 @@
-﻿using BusinessLogic;
+﻿using APIDemolaySergipe;
+using BusinessLogic;
 using DataAccessLayer;
 using ModelLayer;
 using System;
@@ -12,7 +13,7 @@ namespace BusinessLayer
 {
     public class CidadeBL
     {
-        private CidadeDAL _cidadeDAL = new CidadeDAL();
+        private CidadeDAL _cidadeDAL = new CidadeDAL("");
          
         public CidadeBL()
         {

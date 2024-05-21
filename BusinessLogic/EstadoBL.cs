@@ -1,4 +1,5 @@
-﻿using BusinessLayer;
+﻿using APIDemolaySergipe;
+using BusinessLayer;
 using DataAccessLayer;
 using ModelLayer;
 using System;
@@ -12,7 +13,7 @@ namespace BusinessLogic
 {
     public class EstadoBL
     {
-        private readonly EstadoDAL _estadoDAL =new EstadoDAL();
+        private readonly EstadoDAL _estadoDAL =new EstadoDAL("");
 
         public EstadoBL()
         {

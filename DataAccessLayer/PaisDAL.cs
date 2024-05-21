@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using ToolAccessLayer;using MySql.Data.MySqlClient;
-
-namespace DataAccessLayer
+using MySql.Data.MySqlClient;
+using DataAccessLayer;
+namespace APIDemolaySergipe
 {
     public class PaisDAL
     {
-        private SQLServerConexion SqlConnection = new SQLServerConexion("headin2023fabrinioandessantanalemos");
+        private SQLServerConexion SqlConnection;
 
-        public PaisDAL()
+        public PaisDAL(string stringcnx)
         {
+            SqlConnection = new SQLServerConexion(stringcnx);
             SqlConnection.Open();
         }
 
