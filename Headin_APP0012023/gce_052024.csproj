@@ -172,9 +172,11 @@
     <Content Include="Admin\CadastroEstado.aspx" />
     <Content Include="Admin\CadastroPais.aspx" />
     <Content Include="css\Chart.css" />
+    <Content Include="institucional\ConsultaDocumentos.html" />
     <Content Include="formsCampanha\NrdaSorte.aspx" />
     <Content Include="formsCampanha\CadastroCampanha.aspx" />
     <Content Include="Images\CampanhaDemolaySergipe.jpg" />
+    <Content Include="institucional\ConsultaArquivos.aspx" />
     <Content Include="institucional\CampanhaContribuicao.aspx" />
     <Content Include="institucional\ExcelViewer.aspx" />
     <Content Include="institucional\CampanhaDemolaySE.aspx" />
@@ -337,6 +339,7 @@
     <Content Include="DeMolaySergipe_files\remote.js.transferir" />
     <Content Include="DeMolaySergipe_files\www-embed-player.js.transferir" />
     <Content Include="gcese.snk" />
+    <Content Include="Doc\2024\Decretos\DECRETO.004- CRIA A COORDENACAO ESTADUAL DA ORDEM DA CAVALARIA.pdf" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -433,6 +436,13 @@
     <Compile Include="formsCampanha\CadastroCampanha.aspx.designer.cs">
       <DependentUpon>CadastroCampanha.aspx</DependentUpon>
     </Compile>
+    <Compile Include="institucional\ConsultaArquivos.aspx.cs">
+      <DependentUpon>ConsultaArquivos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="institucional\ConsultaArquivos.aspx.designer.cs">
+      <DependentUpon>ConsultaArquivos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="institucional\CampanhaContribuicao.aspx.cs">
       <DependentUpon>CampanhaContribuicao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -525,6 +535,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Doc\2024\Atos\" />
+    <Folder Include="Doc\2024\Editais\" />
+    <Folder Include="Doc\2024\Oficios\" />
     <Folder Include="Logs\" />
     <Folder Include="Models\" />
     <Folder Include="TempImageFiles\" />

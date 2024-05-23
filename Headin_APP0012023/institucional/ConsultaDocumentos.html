@@ -76,6 +76,33 @@
 		}
 	</style>
 	<style>
+		.tree {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+			.tree li {
+				cursor: pointer;
+			}
+
+			.tree .expanded {
+				display: block;
+			}
+
+			.tree .collapsed {
+				display: none;
+			}
+
+			.tree .folder {
+				font-weight: bold;
+			}
+
+			.tree .file {
+				padding-left: 20px;
+			}
+	</style>
+	<style>
 		.area_footer {
 			border: none;
 		}
@@ -436,11 +463,15 @@
 				</div>
 			</div>
 		</div>
+
+		<!--Conteúdo da Pagína-->
+
 		<div id="div_show" class="area_default">
 			<!-- Inserindo a página ASPx dentro de um iframe -->
-			<iframe src="../institucional/CampanhaContribuicao.aspx" width="100%" height="600" frameborder="0"></iframe>
+			<iframe src="../institucional/ConsultaArquivos.aspx" width="100%" height="600" frameborder="0"></iframe>
 		</div>
 
+		<!--Fim Conteúdo da Pagina-->
 
 		<div class="quero" onclick="location.href=&#39;https://www.ocaminhocomecaaqui.com.br&#39;">
 			Faça parte da<br />
@@ -496,6 +527,59 @@
 				section.style.display = 'none';
 			}
 		}
+	</script>
+	<script>
+        function exploreFolder() {
+            const rootFolderPath = document.getElementById('rootFolderInput').value;
+            if (!rootFolderPath) {
+                alert('Please enter a valid root folder path.');
+                return;
+            }
+
+            fileTree.innerHTML = ''; // Clear previous tree
+
+            exploreDirectory(rootFolderPath, fileTree);
+        }
+
+        function exploreDirectory(path, parentNode) {
+            fetch(path)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error exploring directory: ' + data.error);
+                        return;
+                    }
+
+                    for (const [name, contents] of Object.entries(data)) {
+                        const element = document.createElement('li');
+                        element.classList.add(contents.type === 'dir' ? 'folder' : 'file');
+                        element.innerText = name;
+
+                        if (contents.type === 'dir') {
+                            const list = document.createElement('ul');
+                            list.classList.add('collapsed');
+                            element.appendChild(list);
+
+                            element.addEventListener('click', () => {
+                                list.classList.toggle('expanded');
+                            });
+
+                            exploreDirectory(path + '/' + name, list);
+                        } else {
+                            // Add click event listener to open the file (replace with your preferred method)
+                            element.addEventListener('click', () => {
+                                // Open the file using your preferred method (e.g., new window, iframe)
+                                window.open(path + '/' + name);
+                            });
+                        }
+
+                        parentNode.appendChild(element);
+                    }
+                })
+                .catch(error => {
+                    alert('Error fetching directory: ' + error.message);
+                });
+        }
 	</script>
 </body>
 </html>

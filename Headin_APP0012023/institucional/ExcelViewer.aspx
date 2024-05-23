@@ -75,7 +75,7 @@
                <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
                <asp:BoundField DataField="Evento" HeaderText="Evento" />
                <asp:BoundField DataField="Descrição" HeaderText="Descrição" />
-               <asp:BoundField DataField="Orçamento" HeaderText="Orçamento" />
+               <asp:BoundField DataField="Orçamento" HeaderText="Orçamento" DataFormatString="{0:C}" HtmlEncode="false"  />
                <asp:BoundField DataField="Itens" HeaderText="Itens" />
             </Columns>
         </asp:GridView>

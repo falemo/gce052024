@@ -83,7 +83,7 @@
             <Columns>
                <asp:BoundField DataField="Email" HeaderText="Email" />
                <asp:BoundField DataField="Data" HeaderText="Data" />
-               <asp:BoundField DataField="Valor" HeaderText="Valor" />
+               <asp:BoundField DataField="Valor" HeaderText="Valor" DataFormatString="{0:C}" />
                <asp:BoundField DataField="Validado" HeaderText="Situação" />
                <asp:BoundField DataField="NumeroSorte" HeaderText="Nr Sorte" />
             </Columns>
