@@ -172,6 +172,7 @@
     <Content Include="Admin\CadastroEstado.aspx" />
     <Content Include="Admin\CadastroPais.aspx" />
     <Content Include="css\Chart.css" />
+    <Content Include="Img_Eventos\Conamesco20242.png" />
     <Content Include="institucional\ConsultaDocumentos.html" />
     <Content Include="formsCampanha\NrdaSorte.aspx" />
     <Content Include="formsCampanha\CadastroCampanha.aspx" />

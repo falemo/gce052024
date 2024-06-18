@@ -54,7 +54,7 @@
     </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>DeMolay Sergipe</title>
+	<title>CampanhaDemolaySE - DeMolay Sergipe</title>
 </head>
 <body>
 <form id="form1" runat="server">
@@ -70,7 +70,7 @@
 								<br />
 								<i><b>Quem contribuir, pode ser contemplado!</b> além 
                                 
-&nbsp;de ajudar, também pode participar de 4 Sorteios para ganhar também!</i>
+&nbsp;de ajudar, também pode participar de 32 Sorteios para ganhar também!</i>
 								<i>a cada
                                 <asp:Label ID="lblVlrCupom" runat="server" Text="Label"></asp:Label>
 &nbsp;acumulado e registrado será gerado um cupom para participação. </i>

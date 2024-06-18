@@ -112,7 +112,7 @@
     </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>DeMolay Sergipe</title>
+	<title>ConsultaArquivos - DeMolay Sergipe</title>
 </head>
 <body>
 <form id="form1" runat="server">
